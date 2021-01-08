@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Booking code:</strong>
+  <%= @reservation.booking_code %>
+</p>
+
+<p>
+  <strong>From date:</strong>
+  <%= @reservation.from_date %>
+</p>
+
+<p>
+  <strong>To date:</strong>
+  <%= @reservation.to_date %>
+</p>
+
+<p>
+  <strong>Property:</strong>
+  <%= @reservation.property_id %>
+</p>
+
+<p>
+  <strong>Review:</strong>
+  <%= @reservation.review_id %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>
