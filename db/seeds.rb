@@ -28,3 +28,57 @@ res3 = Reservation.create!(
 puts "Added #{Reservation.count} reservations"
 
 #==============================================================
+
+Review.destroy_all
+
+rev1 = Review.create!(
+  comment: "amazing place to stay",
+  rating: 4,
+)
+
+rev2 = Review.create!(
+  comment: "Its not too bad",
+  rating: 4,
+)
+
+rev3 = Review.create!(
+  comment: "SuperB",
+  rating: 5,
+)
+
+rev4 = Review.create!(
+  comment: "Its fine",
+  rating: 3,
+)
+
+puts "Added #{Review.count} reservations"
+
+#==============================================================
+
+User.destroy_all
+
+user1 = User.create!(
+  name:"David",
+  email:"david@ga.co",
+  password:"chicken"
+)
+
+user2 = User.create!(
+  name:"John",
+  email:"john@ga.co",
+  password:"chicken"
+)
+
+user3 = User.create!(
+  name:"Kyle",
+  email:"Kyle@ga.co",
+  password:"chicken"
+)
+
+user4 = User.create!(
+  name:"Stacey",
+  email:"Stacey@ga.co",
+  password:"chicken"
+)
+
+puts "Added #{User.count} users"
