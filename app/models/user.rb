@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  has_many: reviews, through: reservation
-  has_many: reservations, optional: true
+  has_many :reviews
+  has_many :reservations
 
 end
