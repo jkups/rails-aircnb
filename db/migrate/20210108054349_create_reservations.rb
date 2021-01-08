@@ -5,7 +5,6 @@ class CreateReservations < ActiveRecord::Migration[5.2]
       t.date :from_date
       t.date :to_date
       t.string :property_id
-      t.integer :review_id
 
       t.timestamps
     end

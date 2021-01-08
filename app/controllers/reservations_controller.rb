@@ -1,10 +1,15 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, raise: false
 
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+    headers['Access-Control-Allow-Origin'] = '*'
+    respond_to do |format|
+      format.html { render index: @reservations = Reservation.all  }
+      format.json { render json: Reservation.all, include: ['users'] }
+    end
   end
 
   # GET /reservations/1
@@ -33,6 +38,12 @@ class ReservationsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @reservation.errors, status: :unprocessable_entity }
+
+        # for the API create
+        # headers['Access-Control-Allow-Origin'] = '*'
+        # reservation = Reservation.create reservation_params
+        #
+        # render json: reservation, include: ['flight', 'user']
       end
     end
   end

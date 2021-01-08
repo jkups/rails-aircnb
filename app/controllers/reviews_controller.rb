@@ -1,10 +1,14 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token, raise: false
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    headers['Access-Control-Allow-Origin'] = '*'
+    respond_to do |format|
+      format.html { render index: @reviews = Review.all  }
+      format.json { render json: Review.all, include: ['reservation'] }
+    end
   end
 
   # GET /reviews/1
@@ -35,6 +39,12 @@ class ReviewsController < ApplicationController
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
+
+    # For the API create
+    # headers['Access-Control-Allow-Origin'] = '*'
+    # review = Review.create review_params
+    #
+    # render json: review, include: ['reservation', 'users']
   end
 
   # PATCH/PUT /reviews/1

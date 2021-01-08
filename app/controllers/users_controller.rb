@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token, raise: false
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    headers['Access-Control-Allow-Origin'] = '*'
+    respond_to do |format|
+      format.html { render index: @users = User.all  }
+      format.json { render json: User.all, include: ['reviews'] }
+    end
   end
 
   # GET /users/1
