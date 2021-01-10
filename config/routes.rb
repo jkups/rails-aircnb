@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  
+  resources :images
+  resources :properties
+  # get '/' => 'reservations#index'
+
   # get '/' => 'reservations#index'
 
   resources :reviews
