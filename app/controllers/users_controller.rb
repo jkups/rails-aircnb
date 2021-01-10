@@ -14,6 +14,11 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    headers['Access-Control-Allow-Origin'] = '*'
+    respond_to do |format|
+      # format.html { render index: @users = User.all  }
+      format.json { render json: User.where(id: params[:id] ), include: ['reviews'] }
+    end
   end
 
   # GET /users/new
