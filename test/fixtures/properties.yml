@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  heading: MyString
+  title: MyString
+  address: MyText
+  description: MyText
+  max_guests: 1
+  bedrooms: 1
+  bathrooms: 1
+  longitude: 1.5
+  latitude: 1.5
+  cleaning_fee: 1.5
+  service_fee: 1.5
+
+two:
+  heading: MyString
+  title: MyString
+  address: MyText
+  description: MyText
+  max_guests: 1
+  bedrooms: 1
+  bathrooms: 1
+  longitude: 1.5
+  latitude: 1.5
+  cleaning_fee: 1.5
+  service_fee: 1.5

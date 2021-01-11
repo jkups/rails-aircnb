@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_08_122620) do
+ActiveRecord::Schema.define(version: 2021_01_11_010118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "images", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.text "image_url"
+    t.integer "property_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.string "heading"
+    t.string "title"
+    t.text "address"
+    t.text "description"
+    t.integer "max_guests"
+    t.integer "bedrooms"
+    t.integer "bathrooms"
+    t.float "longitude"
+    t.float "latitude"
+    t.float "cleaning_fee"
+    t.float "service_fee"
+    t.text "street"
+    t.text "city"
+    t.text "state"
+    t.text "postcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "property_type"
+    t.integer "listing_price"
+  end
 
   create_table "reservations", force: :cascade do |t|
     t.string "booking_code"
@@ -23,6 +54,11 @@ ActiveRecord::Schema.define(version: 2021_01_08_122620) do
     t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "trxn_code"
+    t.string "trxn_status", default: "pending"
+    t.string "pay_method"
+    t.float "total_paid", default: 0.0
+    t.integer "guests_count"
   end
 
   create_table "reservations_users", id: false, force: :cascade do |t|
@@ -44,6 +80,7 @@ ActiveRecord::Schema.define(version: 2021_01_08_122620) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.boolean "admin", default: false
   end
 
 end
