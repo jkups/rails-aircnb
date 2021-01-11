@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'contact/new'
   get '/logged_in' => 'session#is_logged_in'
   get '/login' => 'session#new'
   post '/login' => 'session#create'
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   resources :users
 
   root to: 'pages#home'
-  
+
   # root 'hompage#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
