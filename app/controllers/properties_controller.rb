@@ -4,7 +4,13 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
   def index
+    headers['Access-Control-Allow-Origin'] = '*'
     @properties = Property.all
+
+    respond_to do |format|
+      format.html { render index: @properties = Property.all  }
+      format.json { render json: Property.all, include: ['images'] }
+    end
   end
 
   # GET /properties/1

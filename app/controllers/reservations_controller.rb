@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
     headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
       format.html { render index: @reservations = Reservation.all  }
-      format.json { render json: Reservation.all, include: ['users'] }
+      format.json { render json: Reservation.all, include: ['users','properties'] }
     end
   end
 

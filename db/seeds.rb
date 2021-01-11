@@ -173,7 +173,7 @@ puts "++++++++++++++++++++++++"
 
 puts "++++++++++++++++++++++++"
 
-5.times do |i|
+10.times do |i|
   property_array[i].images << image_array[i] << image_array[i+10] << image_array[i+20] << image_array[i+30] << image_array[i+40]
 end
 
