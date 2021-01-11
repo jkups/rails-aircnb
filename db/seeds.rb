@@ -102,7 +102,7 @@ image_array = []
   create = Image.create!(
     name: "Name",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    image_url: "http://www.fillmurray.com/100/100"
+    image_url: "http://www.fillmurray.com/300/200"
   )
   image_array.push create
 end
@@ -122,6 +122,7 @@ property_array = [];
   states = [ "NSW", "NSW", "NSW", "NSW", "NSW", "NSW", "NSW", "NSW", "QLD", "QLD",]
   postcodes = ["2153", "2325", "2323", "2533", "2106", "2154", "2068", "2230", "4213", "4007"]
   types = ["apartment","house","hotel room","apartment","hotel room","apartment","house","hotel room","apartment","hotel room"]
+  price = [80,60,50,120,70,100,90,75,95,80]
 
   create = Property.create!(
     heading: "Lorem ipsum dolor sit amet",
@@ -137,7 +138,8 @@ property_array = [];
     city: cities[i],
     state: states[i],
     postcode: postcodes[i],
-    property_type: types[i]
+    property_type: types[i],
+    listing_price: price[i]
   )
 
   property_array.push create
