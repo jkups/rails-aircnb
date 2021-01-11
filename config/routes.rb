@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get '/logged_in' => 'session#is_logged_in'
+  post '/login' => 'session#create'
+  delete '/login' => 'session#destroy'
+
   get '/' => 'reservations#index'
 
   resources :reviews
