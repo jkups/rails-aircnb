@@ -121,6 +121,7 @@ property_array = [];
   cities = ["Baulkham Hills", "Lovedale", "Mulbring", "Kiama", "Newport", "Castle Hill", "Willoughby","Woolooware", "Tallai", "Ascot"]
   states = [ "NSW", "NSW", "NSW", "NSW", "NSW", "NSW", "NSW", "NSW", "QLD", "QLD",]
   postcodes = ["2153", "2325", "2323", "2533", "2106", "2154", "2068", "2230", "4213", "4007"]
+  types = ["apartment","house","hotel room","apartment","hotel room","apartment","house","hotel room","apartment","hotel room"]
 
   create = Property.create!(
     heading: "Lorem ipsum dolor sit amet",
@@ -135,7 +136,8 @@ property_array = [];
     street: streets[i],
     city: cities[i],
     state: states[i],
-    postcode: postcodes[i]
+    postcode: postcodes[i],
+    property_type: types[i]
   )
 
   property_array.push create
