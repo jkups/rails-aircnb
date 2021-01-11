@@ -1,7 +1,22 @@
-<div class="container-fluid">
+<div class="container-fluid" id=links>
   <div class="btn-group special container-fluid" role="group">
-    <%= link_to "Resrevations", reservations_path, class: "btn btn-primary"%>
-    <%= link_to "Users", users_path, class: "btn btn-secondary"%>
-    <%= link_to "Reviews", reviews_path, class: "btn btn-primary"%>
+
+    <p>
+      <%= link_to "Home", root_path, class: "btn btn-primary"%>
+      <% if @current_user.present? %>
+            <%= link_to "Logout", login_path, method: 'delete', class: "btn btn-primary"%>
+          <% else %>
+            <%= link_to "Login", login_path, class: "btn btn-primary"  %>
+            <%= link_to "Sign Up", new_user_path, class: "btn btn-primary"%>
+          <% end %>
+
+      <%= link_to "Reservations", reservations_path, class: "btn btn-primary"%>
+      <%= link_to "Users", users_path, class: "btn btn-secondary"%>
+      <%= link_to "Reviews", reviews_path, class: "btn btn-primary"%>
+      <%= link_to "Images", images_path, class: "btn btn-primary"%>
+      <%= link_to "Properties", properties_path, class: "btn btn-primary"%>
+    </p>
+
+
   </div>
 </div>

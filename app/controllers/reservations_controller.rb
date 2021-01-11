@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
     headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
       format.html { render index: @reservations = Reservation.all  }
-      format.json { render json: Reservation.all, include: ['users'] }
+      format.json { render json: Reservation.all, include: ['users','property'] }
     end
   end
 
@@ -32,6 +32,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
 
     respond_to do |format|
+
       if @reservation.save
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
