@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def show
     headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
-      # format.html { render index: @users = User.all  }
+      format.html { render index: @users = User.all  }
       format.json { render json: User.where(id: params[:id] ), include: ['reviews'] }
     end
   end
