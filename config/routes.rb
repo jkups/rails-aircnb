@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'messages/new'
+  get 'messages/create'
+  get 'messages/index'
+  get 'messages/show'
+  get 'messages/edit'
+  get 'messages/update'
+  get 'messages/destroy'
   resources :images
   resources :properties
   # get '/' => 'reservations#index'
