@@ -15,6 +15,13 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
+    headers['Access-Control-Allow-Origin'] = '*'
+    property = Property.where(id: params[:id])
+
+    respond_to do |format|
+      format.html { render index: property }
+      format.json { render json: property, include: ['images'] }
+    end
   end
 
   # GET /properties/new
