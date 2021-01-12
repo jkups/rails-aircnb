@@ -124,14 +124,14 @@ property_array = [];
   types = ["apartment","house","hotel room","apartment","hotel room","apartment","house","hotel room","apartment","hotel room"]
   price = [80,60,50,120,70,100,90,75,95,80]
   amenities = [
-    "['Kitchen',
-    'First aid kit',
-    'Washing machine',
-    'Free parking on premises',
-    'Hangers',
-    'Iron',
-    'Hair dryer',
-    'Smoke alarm']"
+    "Kitchen,
+    First aid kit,
+    Washing machine,
+    Free parking on premises,
+    Hangers,
+    Iron,
+    Hair dryer,
+    Smoke alarm"
   ]
 
   create = Property.create!(

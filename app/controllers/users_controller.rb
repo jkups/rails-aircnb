@@ -4,9 +4,10 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    @users=User.all
     # headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
-      format.html { render index: @users = User.all  }
+      format.html { check_if_user_logged_in }
       format.json { render json: User.all, include: ['reviews'] }
     end
   end
@@ -14,20 +15,23 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @users=User.all
     headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
-      format.html { render index: @users = User.all  }
+      format.html {check_if_user_logged_in}
       format.json { render json: User.where(id: params[:id] ), include: ['reviews'] }
     end
   end
 
   # GET /users/new
   def new
+    check_if_user_logged_in
     @user = User.new
   end
 
   # GET /users/1/edit
   def edit
+    check_if_user_logged_in
   end
 
   # POST /users
@@ -40,7 +44,7 @@ class UsersController < ApplicationController
       if @user.persisted?
         session[:user_id] = @user.id
 
-        format.html { redirect_to user_path(user.id) }
+        format.html { redirect_to users_path }
         format.json { render json: { user: @user, logged_in: true }}
       else
 

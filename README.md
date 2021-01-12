@@ -1,24 +1,40 @@
-# README
+AirCnB platform
+-----------------------------------------------------
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a group project and is basically a clone of AirBnB but CnB means Communist and Beds.
 
-Things you may want to cover:
+links
+------------------------------------------------------
+Github Rails code: https://github.com/staceyrea/rails-air-cnb-app
+Github React code: https://github.com/staceyrea/react-air-cnb-app
+Heroku-rails:
+Gitgub-react:
 
-* Ruby version
+Tech stack used
+------------------------------------------------------
 
-* System dependencies
+React
+PostgreSQL
+RoR
+Bootstrap
+Braintree
+APIs
+JSON
+AXIOS
+Geolocation
+ActionMailer
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+How to use
+------------------------------------------------------
 
-* How to run the test suite
+AirCnB is a platform with properties around Australia for rent. Ruby on Rails (the backend) is for the admin to use while React (the frontend) is for the users to place reservations and leave reviews of the properties.
 
-* Services (job queues, cache servers, search engines, etc.)
+Known bugs
+------------------------------------------------------
+TBA
 
-* Deployment instructions
-
-* ...
+Future features
+------------------------------------------------------
+TBA

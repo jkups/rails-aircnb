@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post 'contact/new'
+  post '/contact/create' => 'contact#create'
   get '/logged_in' => 'session#is_logged_in'
   get '/login' => 'session#new'
   post '/login' => 'session#create'
@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :images
   resources :properties
+  get '/properties/search/:search_term' => 'properties#search'
   resources :reviews
   resources :reservations
   resources :users

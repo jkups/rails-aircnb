@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
   def check_if_user_logged_in
     unless @current_user.present? && !@current_user.admin
       flash[:error] = 'You are not authorized to perform that action.'
-      redirect_to login_path
+      redirect_to login_path and return
+
     end
   end
 
