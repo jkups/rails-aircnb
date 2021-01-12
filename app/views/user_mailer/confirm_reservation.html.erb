@@ -1,0 +1,14 @@
+<p>Hello <%= @user.name %></p>
+
+<p>Thank you for making a booking on AirCnB. Your booking details are as follows:</p>
+
+<div>
+  <p>Check-In: <%= @reservation.from_date %></p>
+  <p>Check-Out: <%= @reservation.to_date %></p>
+  <p>Lodging Address: <%= @reservation.property.address %></p>
+  <p>Total Paid: <%= @reservation.total_due %></p>
+</div>
+
+<p>We hope you enjoy your stay.</p>
+
+<p>The AirCnB Team</p>

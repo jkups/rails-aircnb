@@ -2,16 +2,20 @@ class PaymentController < ApplicationController
   skip_before_action :verify_authenticity_token, raise: false
 
   def create
-    reservation = Reservation.find params[:id]
+    @reservation = Reservation.find params[:id]
 
     # if reservation.is_valid?
-      process_trxn = reservation.pay_with_braintree params[:nonce]
+      process_trxn = @reservation.pay_with_braintree params[:nonce]
 
       if process_trxn.success?
-        trxn_code = process_trxn.transaction.id
+        @user = User.find params[:user_id]
 
-        reservation.update trxn_code: trxn_code, trxn_status: 'successfull'
-        render json: reservation, include:['property']
+        trxn_code = process_trxn.transaction.id
+        @reservation.update trxn_code: trxn_code, trxn_status: 'successfull'
+        @user.reservations << @reservation
+
+        # UserMailer.confirm_reservation(@user, @reservation).deliver_now
+        render json: @reservation, include:['property']
       else
         render json: { status: 401, errors: 'Payment failed to process. Please try again.' }
       end

@@ -24,7 +24,10 @@ class ReservationsController < ApplicationController
   # GET /reservations/1
   # GET /reservations/1.json
   def show
-    check_if_user_logged_in
+    respond_to do |format|
+      format.html {check_if_user_logged_in}
+      format.json { render json: @reservation, include:['property']}
+    end
   end
 
   # GET /reservations/new
