@@ -15,7 +15,7 @@ class PropertiesController < ApplicationController
 
   #GET /properties/search/:search_term
   def search
-    results = Property.near(params[:search_term], 50, units: :km)
+    results = Property.near(params[:search_term], 100, units: :km)
     render json: results, include: ['images'];
   end
 
