@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_211015) do
+ActiveRecord::Schema.define(version: 2021_01_11_010118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_211015) do
     t.string "trxn_code"
     t.string "trxn_status", default: "pending"
     t.string "pay_method"
-    t.float "total_paid", default: 0.0
+    t.float "total_due", default: 0.0
     t.integer "guests_count"
   end
 
