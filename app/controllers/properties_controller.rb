@@ -9,14 +9,14 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       format.html { check_if_user_logged_in  }
-      format.json { render json: Property.all, include: ['images'] }
+      format.json { render json: Property.all, include: ['images','reservations','reviews'] }
     end
   end
 
   #GET /properties/search/:search_term
   def search
     results = Property.near(params[:search_term], 100, units: :km)
-    render json: results, include: ['images'];
+    render json: results, include: ['images','reservations','reviews'];
   end
 
   # GET /properties/1

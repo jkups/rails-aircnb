@@ -1,6 +1,7 @@
 class Property < ApplicationRecord
   has_many :images
   has_many :reservations
+  has_many :reviews, through: :reservations
 
   def address
   "#{street}, #{city}"
