@@ -7,7 +7,7 @@ class PropertiesController < ApplicationController
     @properties = Property.all
 
     respond_to do |format|
-      format.html { render index: @properties = Property.all  }
+      format.html { check_if_user_logged_in  }
       format.json { render json: Property.all, include: ['images'] }
     end
   end
@@ -15,15 +15,18 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
+    check_if_user_logged_in
   end
 
   # GET /properties/new
   def new
+    check_if_user_logged_in
     @property = Property.new
   end
 
   # GET /properties/1/edit
   def edit
+    check_if_user_logged_in
   end
 
   # POST /properties
