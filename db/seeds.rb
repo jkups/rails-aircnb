@@ -123,6 +123,16 @@ property_array = [];
   postcodes = ["2153", "2325", "2323", "2533", "2106", "2154", "2068", "2230", "4213", "4007"]
   types = ["apartment","house","hotel room","apartment","hotel room","apartment","house","hotel room","apartment","hotel room"]
   price = [80,60,50,120,70,100,90,75,95,80]
+  amenities = [
+    "['Kitchen',
+    'First aid kit',
+    'Washing machine',
+    'Free parking on premises',
+    'Hangers',
+    'Iron',
+    'Hair dryer',
+    'Smoke alarm']"
+  ]
 
   create = Property.create!(
     heading: "Lorem ipsum dolor sit amet",
@@ -139,7 +149,8 @@ property_array = [];
     state: states[i],
     postcode: postcodes[i],
     property_type: types[i],
-    listing_price: price[i]
+    listing_price: price[i],
+    amenities: amenities[0]
   )
 
   property_array.push create
