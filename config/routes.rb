@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post 'contact/new'
+  post '/contact/create' => 'contact#create'
   get '/logged_in' => 'session#is_logged_in'
   get '/login' => 'session#new'
   post '/login' => 'session#create'

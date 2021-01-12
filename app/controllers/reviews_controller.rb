@@ -4,9 +4,10 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
+    @reviews = Review.all
     headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
-      format.html { render index: @reviews = Review.all  }
+      format.html { check_if_user_logged_in }
       format.json { render json: Review.all, include: ['reservation'] }
     end
   end
@@ -14,15 +15,18 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
+    check_if_user_logged_in
   end
 
   # GET /reviews/new
   def new
+    check_if_user_logged_in
     @review = Review.new
   end
 
   # GET /reviews/1/edit
   def edit
+    check_if_user_logged_in    
   end
 
   # POST /reviews
