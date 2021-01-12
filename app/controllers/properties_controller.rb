@@ -15,7 +15,14 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
-    check_if_user_logged_in
+    headers['Access-Control-Allow-Origin'] = '*'
+    property = Property.where(id: params[:id])
+
+    respond_to do |format|
+      format.html { check_if_user_logged_in }
+      format.json { render json: property, include: ['images'] }
+    end
+
   end
 
   # GET /properties/new
