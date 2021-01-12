@@ -29,9 +29,7 @@ class SessionController < ApplicationController
 
   end
 
-  def is_logged_in
-    headers['Access-Control-Allow-Origin'] = '*'
-    
+  def is_logged_in    
     if !!session[:user_id] && @current_user
       render json: {
         logged_in: true,

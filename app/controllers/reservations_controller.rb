@@ -24,7 +24,10 @@ class ReservationsController < ApplicationController
   # GET /reservations/1
   # GET /reservations/1.json
   def show
-    check_if_user_logged_in
+    respond_to do |format|
+      format.html {check_if_user_logged_in}
+      format.json { render json: @reservation, include:['property']}
+    end
   end
 
   # GET /reservations/new
@@ -43,14 +46,18 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
 
+    total_due = @reservation.get_total_due
+    @reservation[:total_due] = total_due
+    @reservation.save
+
     respond_to do |format|
 
-      if @reservation.save
+      if @reservation.persisted?
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-        format.json { render :show, status: :created, location: @reservation }
+        format.json { render json: @reservation, include:['property']  }
       else
         format.html { render :new }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
+        format.json { render json: { status: 401, errors: @reservation.errors } }
 
         # for the API create
         # headers['Access-Control-Allow-Origin'] = '*'
@@ -93,6 +100,6 @@ class ReservationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def reservation_params
-      params.require(:reservation).permit(:booking_code, :from_date, :to_date, :property_id)
+      params.require(:reservation).permit(:from_date, :to_date, :property_id, :guests_count, :booking_code)
     end
 end
