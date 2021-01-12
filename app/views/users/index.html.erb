@@ -1,7 +1,9 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <h1>Users</h1>
+  <h2>Users</h2><br/>
+
+  <%= link_to 'Add new user', new_user_path, class: "btn btn-primary" %><br/><br/>
 
   <table class="table">
     <thead>
@@ -9,6 +11,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Password</th>
+        <th>Reservations</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -16,12 +19,21 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <td><%= user.name %></td>
+          <td id=<%=user.id%>> <%= user.name %></td>
           <td><%= user.email %></td>
           <td><%= user.password %></td>
-          <td><%= link_to 'Show', user, class: "btn btn-primary" %></td>
-          <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-primary" %></td>
-          <td><%= link_to 'Destroy', user, class: "btn btn-danger", method: :delete, data: { confirm: 'Please confirm you want to delete it' } %></td>
+          <td>
+            <ul>
+                <% user.reservations.each do |reservation| %>
+                <li>
+                  <%= link_to reservation.booking_code, reservation %>
+                <% end %>
+              </li>
+            </ul>
+          </td>
+          <td><%= link_to 'Show', user, class: "btn btn-outline-secondary" %></td>
+          <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-outline-secondary" %></td>
+          <td><%= link_to 'Remove User', user, class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Please confirm you want to delete it' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -29,5 +41,5 @@
 
   <br>
 
-  <%= link_to 'New User', new_user_path, class: "btn btn-primary" %>
+
 </div>

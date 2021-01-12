@@ -6,6 +6,7 @@ class PropertiesController < ApplicationController
     headers['Access-Control-Allow-Origin'] = '*'
     @properties = Property.all
 
+
     respond_to do |format|
       format.html { check_if_user_logged_in  }
       format.json { render json: Property.all, include: ['images'] }

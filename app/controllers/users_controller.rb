@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
-    check_if_user_logged_in
+    
     @user = User.new
   end
 
