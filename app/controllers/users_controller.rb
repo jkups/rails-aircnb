@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    headers['Access-Control-Allow-Origin'] = '*'
+    # headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
       format.html { render index: @users = User.all  }
       format.json { render json: User.all, include: ['reviews'] }
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def show
     headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
-      # format.html { render index: @users = User.all  }
+      format.html { render index: @users = User.all  }
       format.json { render json: User.where(id: params[:id] ), include: ['reviews'] }
     end
   end
@@ -34,14 +34,19 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    @user.save
 
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to users_url, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+      if @user.persisted?
+        session[:user_id] = @user.id
+
+        format.html { redirect_to user_path(user.id) }
+        format.json { render json: { user: @user, logged_in: true }}
       else
+
         format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: { status: 401, errors: 'Could not create account' }}
+
       end
     end
   end
