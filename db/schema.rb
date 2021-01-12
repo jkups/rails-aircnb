@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_01_11_010118) do
     t.datetime "updated_at", null: false
     t.string "property_type"
     t.integer "listing_price"
+    t.text "amenities"
   end
 
   create_table "reservations", force: :cascade do |t|

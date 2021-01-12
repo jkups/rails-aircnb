@@ -123,6 +123,16 @@ property_array = [];
   postcodes = ["2153", "2325", "2323", "2533", "2106", "2154", "2068", "2230", "4213", "4007"]
   types = ["apartment","house","hotel room","apartment","hotel room","apartment","house","hotel room","apartment","hotel room"]
   price = [80,60,50,120,70,100,90,75,95,80]
+  amenities = [
+    "Kitchen,
+    First aid kit,
+    Washing machine,
+    Free parking on premises,
+    Hangers,
+    Iron,
+    Hair dryer,
+    Smoke alarm"
+  ]
 
   create = Property.create!(
     heading: "Lorem ipsum dolor sit amet",
@@ -139,7 +149,8 @@ property_array = [];
     state: states[i],
     postcode: postcodes[i],
     property_type: types[i],
-    listing_price: price[i]
+    listing_price: price[i],
+    amenities: amenities[0]
   )
 
   property_array.push create
@@ -157,7 +168,7 @@ puts "User #{user1.name} has the following reservations: #{user1.reservations.pl
 puts "Reservation #{Reservation.first.booking_code} has the following users: #{Reservation.first.users.pluck(:name).join(", ")}"
 puts "+++++++++++++++++++++"
 
-Reservation.first.reviews << rev1 << rev4
+Reservation.first.reviews << rev1
 Reservation.second.reviews << rev2
 Reservation.third.reviews << rev3
 
@@ -169,6 +180,13 @@ puts "++++++++++++++++++++++++"
 user1.reviews << rev5 << rev6
 user2.reviews << rev7
 user3.reviews << rev8
+
+# Additional relationships for users and Reviews
+
+user1.reviews << rev1 << rev2 << rev3
+user4.reviews << rev4
+
+##################################################
 
 puts "++++++++++++++++++++++++"
 puts "Review #{rev5.comment} has the following user: #{rev5.user.name}"

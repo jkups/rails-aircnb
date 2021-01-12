@@ -1,29 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Booking code:</strong>
-  <%= @reservation.booking_code %>
-</p>
+<div class="justify-content-center">
+  <div class="card mb-3" style="max-width: 540px ">
+    <div class="row g-0">
+      <div class=" col-md-4">
+        <img src="...<%= @reservation.property.images[0][0] %>" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Reservation Number: <strong><%= @reservation.booking_code %></strong></h5>
+          <p class="card-text">
+            <p><strong>Property Details:</strong>
+              <ul>
+                <li><%= @reservation.property.heading %></li>
+                <li><%= @reservation.property.title %></li>
+                <li>Address: <%= @reservation.property.address %></li>
+              </ul>
+            </p>
+          </p>
+          <p class="card-text"><small class="text-muted">check-in: <%= @reservation.from_date%>, check-out: <%= @reservation.to_date %></small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
 
-<p>
-  <strong>From date:</strong>
-  <%= @reservation.from_date %>
-</p>
 
-<p>
-  <strong>To date:</strong>
-  <%= @reservation.to_date %>
-</p>
 
-<p>
-  <strong>Property:</strong>
-  <%= @reservation.property_id %>
-</p>
 
-<p>
-  <strong>Review:</strong>
-  <%= @reservation.review_id %>
-</p>
-
-<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
-<%= link_to 'Back', reservations_path %>
+<%= link_to 'Edit this booking', edit_reservation_path(@reservation), class: "btn btn-outline-secondary" %>
+<%= link_to 'Reservations index', reservations_path, class: "btn btn-outline-secondary"  %>
+<%= link_to 'Users index', users_path, class: "btn btn-outline-secondary"  %>

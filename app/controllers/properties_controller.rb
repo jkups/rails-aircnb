@@ -1,6 +1,5 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
-
   # GET /properties
   # GET /properties.json
   def index
@@ -8,23 +7,39 @@ class PropertiesController < ApplicationController
     @properties = Property.all
 
     respond_to do |format|
-      format.html { render index: @properties = Property.all  }
+      format.html { check_if_user_logged_in  }
       format.json { render json: Property.all, include: ['images'] }
     end
+  end
+
+  #GET /properties/search/:search_term
+  def search
+    results = Property.near(params[:search_term], 50, units: :km)
+    render json: results, include: ['images'];
   end
 
   # GET /properties/1
   # GET /properties/1.json
   def show
+    headers['Access-Control-Allow-Origin'] = '*'
+    property = Property.where(id: params[:id])
+
+    respond_to do |format|
+      format.html { check_if_user_logged_in }
+      format.json { render json: property, include: ['images'] }
+    end
+
   end
 
   # GET /properties/new
   def new
+    check_if_user_logged_in
     @property = Property.new
   end
 
   # GET /properties/1/edit
   def edit
+    check_if_user_logged_in
   end
 
   # POST /properties
