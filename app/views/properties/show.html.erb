@@ -1,59 +1,66 @@
 <p id="notice"><%= notice %></p>
+<div class="container-fluid card-body" style="width: 60rem;" >
+  <h3 class="card-title">
+    <%= @property.heading %>
+  </h3>
 
-<p>
-  <strong>Heading:</strong>
-  <%= @property.heading %>
-</p>
+  <h5 class="card-subtitle mb-2 text-muted">
+    <%= @property.title %>
+  </h5><br/>
 
-<p>
-  <strong>Title:</strong>
-  <%= @property.title %>
-</p>
+  <p>
+    <strong>Address:</strong>
+    <%= @property.address %>
+  </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @property.description %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @property.description %>
-</p>
+  <p>
+    <strong>Max guests:</strong>
+    <%= @property.max_guests %>
+  </p>
 
-<p>
-  <strong>Max guests:</strong>
-  <%= @property.max_guests %>
-</p>
+  <p>
+    <strong>Bedrooms:</strong>
+    <%= @property.bedrooms %>
+  </p>
 
-<p>
-  <strong>Bedrooms:</strong>
-  <%= @property.bedrooms %>
-</p>
+  <p>
+    <strong>Bathrooms:</strong>
+    <%= @property.bathrooms %>
+  </p>
 
-<p>
-  <strong>Bathrooms:</strong>
-  <%= @property.bathrooms %>
-</p>
+  <p>
+    <strong>Cleaning fee:</strong>
+    $<%= @property.cleaning_fee.to_i %>
+  </p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @property.longitude %>
-</p>
+  <p>
+    <strong>Service fee:</strong>
+    $<%= @property.service_fee.to_i %>
+  </p>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @property.latitude %>
-</p>
-
-<p>
-  <strong>Cleaning fee:</strong>
-  <%= @property.cleaning_fee %>
-</p>
-
-<p>
-  <strong>Service fee:</strong>
-  <%= @property.service_fee %>
-</p>
-
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+    <strong>Property Images:</strong><br/><br/>
+          <% @property.images.each do |image| %>
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <%= image_tag image.image_url %>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class= "card-title"><%= image.name %></h5>
+                  <p class="card-text"><%= image.description %></p>
+                  <p class="card-text"><small class="text-muted"><%= image.image_url %></small></p>
+                  <%= link_to 'Go to detail', image_path(image), class: "btn btn-outline-secondary" %>
+                </div>
+              </div>
+          </div>
+        </div>
+          <% end %>
+  <%= link_to 'Edit property', edit_property_path(@property), class: "btn btn-outline-secondary" %>
+  <%= link_to 'Back to property index', properties_path, class: "btn btn-outline-secondary" %>
+</div>

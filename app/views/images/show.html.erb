@@ -11,14 +11,16 @@
 </p>
 
 <p>
-  <strong>Image url:</strong>
-  <%= @image.image_url %>
+  <strong>Property Details: </strong>
+  <%= @image.property.title%>, (ID: <%=@image.property_id %>)
 </p>
 
 <p>
-  <strong>Property:</strong>
-  <%= @image.property_id %>
+  <strong>Image url:</strong>
+  <%= @image.image_url %><br/><br/>
+  <%= image_tag @image.image_url %>
 </p>
 
+
 <%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+<%= link_to 'Back', property_path(@image.property) %>
