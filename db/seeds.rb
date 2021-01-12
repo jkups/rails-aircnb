@@ -168,7 +168,7 @@ puts "User #{user1.name} has the following reservations: #{user1.reservations.pl
 puts "Reservation #{Reservation.first.booking_code} has the following users: #{Reservation.first.users.pluck(:name).join(", ")}"
 puts "+++++++++++++++++++++"
 
-Reservation.first.reviews << rev1 << rev4
+Reservation.first.reviews << rev1
 Reservation.second.reviews << rev2
 Reservation.third.reviews << rev3
 
@@ -180,6 +180,13 @@ puts "++++++++++++++++++++++++"
 user1.reviews << rev5 << rev6
 user2.reviews << rev7
 user3.reviews << rev8
+
+# Additional relationships for users and Reviews
+
+user1.reviews << rev1 << rev2 << rev3
+user4.reviews << rev4
+
+##################################################
 
 puts "++++++++++++++++++++++++"
 puts "Review #{rev5.comment} has the following user: #{rev5.user.name}"

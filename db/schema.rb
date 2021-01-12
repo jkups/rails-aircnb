@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2021_01_11_134149) do
     t.date "from_date"
     t.date "to_date"
     t.string "property_id"
-    t.integer "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "trxn_code"
@@ -70,6 +69,7 @@ ActiveRecord::Schema.define(version: 2021_01_11_134149) do
   create_table "reviews", force: :cascade do |t|
     t.text "comment"
     t.integer "rating"
+    t.integer "reservation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
