@@ -68,7 +68,8 @@ User.destroy_all
 user1 = User.create!(
   name:"David",
   email:"david@ga.co",
-  password:"chicken"
+  password:"chicken",
+  admin: true
 )
 
 user2 = User.create!(
@@ -159,32 +160,41 @@ end
 puts "Added #{Property.count} propeties"
 #==============================================================
 
+####  UPDATED   ##################################
+
 user1.reservations << Reservation.first << Reservation.second << Reservation.third
 user2.reservations << Reservation.first << Reservation.fourth
 user3.reservations << Reservation.second
+user4.reservations << Reservation.all[4] << Reservation.all[5]
 
 puts "+++++++++++++++++++++"
 puts "User #{user1.name} has the following reservations: #{user1.reservations.pluck(:booking_code).join(", ")}"
 puts "Reservation #{Reservation.first.booking_code} has the following users: #{Reservation.first.users.pluck(:name).join(", ")}"
 puts "+++++++++++++++++++++"
 
-Reservation.first.reviews << rev1 << rev4
-Reservation.second.reviews << rev2
+####  UPDATED   ##################################
+
+Reservation.first.reviews << rev1 << rev7
+Reservation.second.reviews << rev2 << rev8
 Reservation.third.reviews << rev3
+Reservation.fourth.reviews << rev4
+Reservation.all[4].reviews << rev5
+Reservation.all[5].reviews << rev6
+
+##################################################
+
 
 puts "++++++++++++++++++++++++"
 puts "Review #{rev1.comment} has the following reservation: #{rev1.reservation.booking_code}"
 puts "Resevation: #{Reservation.first.booking_code} has the following reviews: #{Reservation.first.reviews.pluck(:comment).join(", ")}"
 puts "++++++++++++++++++++++++"
 
-user1.reviews << rev5 << rev6
-user2.reviews << rev7
+####  UPDATED   ##################################
+
+user1.reviews << rev1 << rev2 << rev3
+user4.reviews << rev5 << rev6
+user2.reviews << rev7 << rev4
 user3.reviews << rev8
-
-# Additional relationships for users and Reviews
-
-# user1.reviews << rev1 << rev2 << rev3
-# user4.reviews << rev4
 
 ##################################################
 

@@ -4,25 +4,25 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    check_if_user_logged_in
+    check_if_admin_logged_in
     @images = Image.all
   end
 
   # GET /images/1
   # GET /images/1.json
   def show
-    check_if_user_logged_in
+    check_if_admin_logged_in
   end
 
   # GET /images/new
   def new
-    check_if_user_logged_in
+    check_if_admin_logged_in
     @image = Image.new
   end
 
   # GET /images/1/edit
   def edit
-    check_if_user_logged_in
+    check_if_admin_logged_in
   end
 
   # POST /images
