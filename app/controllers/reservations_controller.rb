@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
 
     headers['Access-Control-Allow-Origin'] = '*'
     @reservations = Reservation.all
-    respond_to do |format|
+
       # perform the standard login check for the html version of the request.
       # ( this will also render the default index template )
       check_if_admin_logged_in do
@@ -18,7 +18,7 @@ class ReservationsController < ApplicationController
       format.json do
         # TODO: do knock authentication check here
         render json: @reservations, include: ['users','property']
-      end
+      
     end #respond_to
   end #index
 
