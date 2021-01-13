@@ -15,5 +15,26 @@
   <%= @user.password %>
 </p>
 
+<p> <strong>Reservations: </strong>
+  <ul class="list-group" style="list-style: none">
+      <% @user.reviews.each do |review| %>
+
+        <li class="list-group-item">
+          <p>Reservation Number:
+            <%= review.reservation.booking_code %>
+
+            <%= link_to "Go to reservation", review.reservation, class: "btn btn-secondary", style: "padding: 5px; margin: 2px;" %>
+          </p><em>
+          <p>
+            Review posted: '<%= link_to review.comment, review %>'</em>
+            <%= link_to "Go to review", review, class: "btn btn-secondary", style: "padding: 5px; margin: 2px;" %>
+          </p>
+        </li>
+
+    <% end %>
+
+  </ul>
+
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
