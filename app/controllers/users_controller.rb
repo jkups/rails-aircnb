@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @users=User.all
     # headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
-      format.html { check_if_user_logged_in }
+      format.html { check_if_admin_logged_in }
       format.json { render json: User.all, include: ['reviews'] }
     end
   end
@@ -18,20 +18,20 @@ class UsersController < ApplicationController
     @users=User.all
     headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
-      format.html {check_if_user_logged_in}
+      format.html {check_if_admin_logged_in}
       format.json { render json: User.where(id: params[:id] ), include: ['reviews'] }
     end
   end
 
   # GET /users/new
   def new
-    
+
     @user = User.new
   end
 
   # GET /users/1/edit
   def edit
-    check_if_user_logged_in
+    check_if_admin_logged_in
   end
 
   # POST /users
