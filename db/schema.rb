@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2021_01_11_134149) do
     t.string "trxn_code"
     t.string "trxn_status", default: "pending"
     t.string "pay_method"
-    t.float "total_due", default: 0.0
+    t.float "total_paid", default: 0.0
     t.integer "guests_count"
   end
 

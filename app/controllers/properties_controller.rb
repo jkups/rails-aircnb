@@ -8,7 +8,7 @@ class PropertiesController < ApplicationController
 
 
     respond_to do |format|
-      format.html { check_if_user_logged_in  }
+      format.html { check_if_admin_logged_in  }
       format.json { render json: Property.all, include: ['images','reservations','reviews'] }
     end
   end
@@ -26,7 +26,7 @@ class PropertiesController < ApplicationController
     property = Property.where(id: params[:id])
 
     respond_to do |format|
-      format.html { check_if_user_logged_in }
+      format.html { check_if_admin_logged_in }
       format.json { render json: property, include: ['images','reservations'] }
     end
 
@@ -34,13 +34,13 @@ class PropertiesController < ApplicationController
 
   # GET /properties/new
   def new
-    check_if_user_logged_in
+    check_if_admin_logged_in
     @property = Property.new
   end
 
   # GET /properties/1/edit
   def edit
-    check_if_user_logged_in
+    check_if_admin_logged_in
   end
 
   # POST /properties
