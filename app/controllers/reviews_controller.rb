@@ -20,18 +20,20 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
+
     check_if_admin_logged_in
     @review = Review.new
   end
 
   # GET /reviews/1/edit
   def edit
-    check_if_admin_logged_in    
+    check_if_admin_logged_in
   end
 
   # POST /reviews
   # POST /reviews.json
   def create
+    headers['Access-Control-Allow-Origin'] = '*'
     @review = Review.new(review_params)
 
     respond_to do |format|
@@ -73,6 +75,12 @@ class ReviewsController < ApplicationController
       format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def post
+    Review.new 
+
+    render json: {sent:true}
   end
 
   private
