@@ -26,7 +26,7 @@ class ReservationsController < ApplicationController
   def show
     respond_to do |format|
       format.html {check_if_user_logged_in}
-      format.json { render json: @reservation, include:['property']}
+      format.json { render json: @reservation, include:['property', 'images']}
     end
   end
 

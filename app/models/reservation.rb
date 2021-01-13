@@ -4,6 +4,7 @@ class Reservation < ApplicationRecord
   has_many :reviews
   has_and_belongs_to_many :users
   belongs_to :property, optional: true
+  has_many :images, through: :property
 
   def get_total_due
     price_per_night = self.property.listing_price
