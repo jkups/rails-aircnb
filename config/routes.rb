@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   resources :images
   resources :properties
-  get '/properties/search/:search_term' => 'properties#search'
+  get '/properties/search/:search_term/' => 'properties#search'
+  get '/properties/search/:search_term/:limit/:offset' => 'properties#search_limit'
   resources :reviews
   resources :reservations
   resources :users
