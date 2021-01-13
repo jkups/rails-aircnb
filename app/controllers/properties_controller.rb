@@ -13,10 +13,17 @@ class PropertiesController < ApplicationController
     end
   end
 
-  #GET /properties/search/:search_term
+  #GET /properties/search/:search_term/
   def search
     results = Property.near(params[:search_term], 100, units: :km)
-    render json: results, include: ['images','reservations','reviews'];
+    # results = Property.all.limit(params[:limit]).offset(params[:offset])
+    render json: results, include: ['images','reservations','reviews']
+  end
+  #GET /properties/search/:search_term/:limit/:offset
+  def search_limit
+    results = Property.near(params[:search_term], 100, units: :km).limit(params[:limit]).offset(params[:offset])
+    # results = Property.all.limit(params[:limit]).offset(params[:offset])
+    render json: results, include: ['images','reservations','reviews']
   end
 
   # GET /properties/1

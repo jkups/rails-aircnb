@@ -19,25 +19,18 @@ puts "Added #{Reservation.count} reservations"
 
 Review.destroy_all
 
-rev1 = Review.create!(
-  comment: "amazing place to stay.",
-  rating: 4,
-)
+reviews = ["amazing place to stay.","Its not too bad.","SuperB.","Its fine.","amazing place to stay.","Its not too bad.","SuperB.","Its fine.","amazing place to stay.","Its not too bad.","SuperB.","Its fine.","amazing place to stay.","Its not too bad.","SuperB.","Its fine.","amazing place to stay.","Its not too bad.","SuperB.","Its fine.","amazing place to stay.","Its not too bad.","SuperB.","Its fine.","amazing place to stay.","Its not too bad.","SuperB.","Its fine.","amazing place to stay.","Its not too bad.","SuperB.","Its fine."]
 
-rev2 = Review.create!(
-  comment: "Its not too bad.",
-  rating: 4,
-)
+ratings = [4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3]
 
-rev3 = Review.create!(
-  comment: "SuperB.",
-  rating: 5,
-)
-
-rev4 = Review.create!(
-  comment: "Its fine.",
-  rating: 3,
-)
+rev_array = []
+40.times do |i|
+  create = Review.create!(
+    comment: reviews[i],
+    rating: ratings[i],
+  )
+  rev_array.push create
+end
 
 rev5 = Review.create!(
   comment: "Great customer.",
@@ -136,8 +129,8 @@ property_array = [];
   ]
 
   create = Property.create!(
-    heading: "Lorem ipsum dolor sit amet",
-    title: "Lorem ipsum",
+    heading: Faker::Movies::StarWars.quote,
+    title: Faker::Movies::StarWars.character,
     address: cities[i] + ", " + states[i] + ", Australia",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     max_guests: 4,
@@ -162,38 +155,41 @@ puts "Added #{Property.count} propeties"
 
 ####  UPDATED   ##################################
 
-user1.reservations << Reservation.first << Reservation.second << Reservation.third
-user2.reservations << Reservation.first << Reservation.fourth
-user3.reservations << Reservation.second
-user4.reservations << Reservation.all[4] << Reservation.all[5]
+user1.reservations << Reservation.first << Reservation.second<< Reservation.third << Reservation.fourth << Reservation.fifth
+user2.reservations << Reservation.all[5] << Reservation.all[6] << Reservation.all[7] << Reservation.all[8] << Reservation.all[9]
+user3.reservations << Reservation.all[10]<< Reservation.all[11] << Reservation.all[12] << Reservation.all[13] << Reservation.all[14]
+user4.reservations << Reservation.all[15] << Reservation.all[16] << Reservation.all[17] << Reservation.all[18] << Reservation.all[19]
 
 puts "+++++++++++++++++++++"
 puts "User #{user1.name} has the following reservations: #{user1.reservations.pluck(:booking_code).join(", ")}"
 puts "Reservation #{Reservation.first.booking_code} has the following users: #{Reservation.first.users.pluck(:name).join(", ")}"
 puts "+++++++++++++++++++++"
 
-####  UPDATED   ##################################
+# Reservation.first.reviews << rev1 << rev4
+# Reservation.second.reviews << rev2
+# Reservation.third.reviews << rev3
 
-Reservation.first.reviews << rev1 << rev7
-Reservation.second.reviews << rev2 << rev8
-Reservation.third.reviews << rev3
-Reservation.fourth.reviews << rev4
-Reservation.all[4].reviews << rev5
-Reservation.all[5].reviews << rev6
+20.times do |i|
+  res_array[i].reviews << rev_array[i] << rev_array[i+10]
+end
 
-##################################################
-
+# Reservation.first.reviews << rev1 << rev7
+# Reservation.second.reviews << rev2 << rev8
+# Reservation.third.reviews << rev3
+# Reservation.fourth.reviews << rev4
+# Reservation.all[4].reviews << rev5
+# Reservation.all[5].reviews << rev6
 
 puts "++++++++++++++++++++++++"
-puts "Review #{rev1.comment} has the following reservation: #{rev1.reservation.booking_code}"
+puts "Review #{Review.first.comment} has the following reservation: #{Review.first.reservation.booking_code}"
 puts "Resevation: #{Reservation.first.booking_code} has the following reviews: #{Reservation.first.reviews.pluck(:comment).join(", ")}"
 puts "++++++++++++++++++++++++"
 
 ####  UPDATED   ##################################
 
-user1.reviews << rev1 << rev2 << rev3
-user4.reviews << rev5 << rev6
-user2.reviews << rev7 << rev4
+user1.reviews << rev5
+user4.reviews << rev6
+user2.reviews << rev7
 user3.reviews << rev8
 
 ##################################################
