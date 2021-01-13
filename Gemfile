@@ -66,3 +66,5 @@ gem 'braintree', "~> 2.87"
 gem "chartkick"
 
 gem 'groupdate'
+
+gem 'faker'

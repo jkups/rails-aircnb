@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 
   resources :images
   resources :properties
-  get '/properties/search/:search_term' => 'properties#search'
+  get '/properties/search/:search_term/' => 'properties#search'
+  get '/properties/search/:search_term/:limit/:offset' => 'properties#search_limit'
   resources :reviews
   resources :reservations
   resources :users
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
 
   # Payment routes
   post '/pay/:id' => 'payment#create'
+  #Review post
+  # post '/reviews/post' => 'reviews#post'
 
   # root 'hompage#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
