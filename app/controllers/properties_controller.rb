@@ -27,7 +27,7 @@ class PropertiesController < ApplicationController
 
     respond_to do |format|
       format.html { check_if_admin_logged_in }
-      format.json { render json: property, include: ['images','reservations'] }
+      format.json { render json: property, include: ['images','reservations','reviews'] }
     end
 
   end

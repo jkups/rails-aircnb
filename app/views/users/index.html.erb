@@ -11,7 +11,10 @@
         <th>Name</th>
         <th>Email</th>
         <th>Password</th>
+        <th>Admin</th>
         <th>Reservations</th>
+
+
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -22,6 +25,7 @@
           <td id=<%=user.id%>> <%= user.name %></td>
           <td><%= user.email %></td>
           <td><%= user.password %></td>
+          <td><%= user.admin ? 'yes' : 'no' %></td>
           <td>
             <ul>
                 <% user.reservations.each do |reservation| %>
