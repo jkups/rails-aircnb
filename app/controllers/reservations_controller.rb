@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
     respond_to do |format|
       # perform the standard login check for the html version of the request.
       # ( this will also render the default index template )
-      format.html {render index}
+      format.html {render index:@reservations = Reservation.all }
 
       format.json do
         # TODO: do knock authentication check here
