@@ -2,14 +2,12 @@
 
 <h2>Reservations</h2><br/>
 <%= link_to 'Create new reservation', new_reservation_path, class: "btn btn-primary" %> <br/><br/>
-<table class="table">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Booking code</th>
-      <th>From date</th>
-      <th>To date</th>
-      <th>Property ID</th>
-      <th>Customer</th>
+      <th>Property</th>
+      <th>Customer (review) </th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,13 +16,16 @@
     <% @reservations.each do |reservation| %>
       <tr>
         <td><%= reservation.booking_code %></td>
-        <td><%= reservation.from_date %></td>
-        <td><%= reservation.to_date %></td>
-        <td><%= reservation.property_id %></td>
+        <td><p class="btn btn-link" style="padding: 5px; margin: 2px;"><%= link_to reservation.property.title, reservation.property %></p><br><p style="padding: 5px; margin: 2px;">(ID: <%= reservation.property.id %>)</p>
+
+        </td>
         <td>
-          <ul class="list-group">
-          <% reservation.users.each do |user| %>
-            <li class="list-group-item text-center border border-white"><%= user.name %></li>
+          <ul class="list-group" style="list-style: none">
+          Booking code: <% reservation.reviews.each do |review| %>
+            <li class="list-group-item" >
+              <p class="btn btn-link" style="padding: 5px; margin: 2px;"><%= link_to review.comment, review %></p><br/>
+              <em> - <%= link_to review.user.name, review.user %></em>
+            </li>
           <% end %>
           </ul>
         </td>
