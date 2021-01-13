@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
   def check_if_admin_logged_in
     unless @current_user.present? && @current_user.admin
       flash[:error] = 'Your account cannot perform that action.'
-      redirect_to 'http://localhost:3001/#/'
+      redirect_to 'http://localhost:3001/#/' and return
     end
   end
 
