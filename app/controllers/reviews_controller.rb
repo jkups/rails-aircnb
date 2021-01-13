@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
-    headers['Access-Control-Allow-Origin'] = '*'
+    # headers['Access-Control-Allow-Origin'] = '*'
     @review = Review.new(review_params)
 
     respond_to do |format|
@@ -77,11 +77,7 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def post
-    Review.new 
 
-    render json: {sent:true}
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
