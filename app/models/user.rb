@@ -10,11 +10,10 @@ class User < ApplicationRecord
 
   # define user search
   def self.search(search)
-    if search.present?
-      user = User.where(name: search)
-
+    if search
+      where(["LOWER(name) LIKE ?", "%#{search.downcase}%"])
     else
-      User.all
+      all
     end
   end
 

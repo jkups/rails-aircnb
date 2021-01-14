@@ -4,8 +4,8 @@ class PropertiesController < ApplicationController
   # GET /properties.json
   def index
     headers['Access-Control-Allow-Origin'] = '*'
-    @properties = Property.all
-
+    @properties = Property.search(params[:search])
+    # allow the search function
 
     respond_to do |format|
       format.html { check_if_admin_logged_in  }
@@ -22,7 +22,11 @@ class PropertiesController < ApplicationController
   #GET /properties/search/:search_term/:limit/:offset
   def search_limit
     results = Property.near(params[:search_term], 100, units: :km).limit(params[:limit]).offset(params[:offset])
-    # results = Property.all.limit(params[:limit]).offset(params[:offset])
+    render json: results, include: ['images','reservations','reviews']
+  end
+  #GET /properties/search_type/:search_term/:search_type/:limit/:offset
+  def search_type_limit
+    results = Property.near(params[:search_term], 100, units: :km).limit(params[:limit]).offset(params[:offset]).where(property_type: params[:search_type])
     render json: results, include: ['images','reservations','reviews']
   end
 

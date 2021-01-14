@@ -5,7 +5,9 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    @reservations = Reservation.all
+
+    headers['Access-Control-Allow-Origin'] = '*'
+    @reservations = Reservation.search(params[:search])
     respond_to do |format|
       # perform the standard login check for the html version of the request.
       # ( this will also render the default index template )

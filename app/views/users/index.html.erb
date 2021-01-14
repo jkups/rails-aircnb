@@ -11,10 +11,10 @@
   <!-- search for user -->
   <div class="">
 
-    Search for user
+    Search for users
   <%= form_tag(users_path, method: 'get') do %>
       <%= text_field_tag(:search, params[:search]) %>
-      <%= submit_tag("Search") %>
+      <%= submit_tag("Search")   %>
   <% end %>   <!-- form -->
 
   </div>
