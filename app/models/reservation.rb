@@ -6,6 +6,15 @@ class Reservation < ApplicationRecord
   belongs_to :property, optional: true
   has_many :images, through: :property
 
+  # define reservation search
+  def self.search(search)
+    if search
+      where(["LOWER(booking_code) LIKE ?", "%#{search.downcase}%"])
+    else
+      all
+    end
+  end
+
   def get_total_due
     price_per_night = self.property.listing_price
     service_fee = self.property.service_fee
