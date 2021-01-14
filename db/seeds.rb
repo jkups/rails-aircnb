@@ -32,25 +32,25 @@ rev_array = []
   rev_array.push create
 end
 
-rev5 = Review.create!(
-  comment: "Great customer.",
-  rating: 4,
-)
-
-rev6 = Review.create!(
-  comment: "Horrible Customer.",
-  rating: 1,
-)
-
-rev7 = Review.create!(
-  comment: "Did not make beds when they left, otherwise they were ok.",
-  rating: 3,
-)
-
-rev8 = Review.create!(
-  comment: "Left the place better then they found it.",
-  rating: 5,
-)
+# rev5 = Review.create!(
+#   comment: "Great customer.",
+#   rating: 4,
+# )
+#
+# rev6 = Review.create!(
+#   comment: "Horrible Customer.",
+#   rating: 1,
+# )
+#
+# rev7 = Review.create!(
+#   comment: "Did not make beds when they left, otherwise they were ok.",
+#   rating: 3,
+# )
+#
+# rev8 = Review.create!(
+#   comment: "Left the place better then they found it.",
+#   rating: 5,
+# )
 
 puts "Added #{Review.count} reviews"
 
@@ -160,6 +160,11 @@ user2.reservations << Reservation.all[5] << Reservation.all[6] << Reservation.al
 user3.reservations << Reservation.all[10]<< Reservation.all[11] << Reservation.all[12] << Reservation.all[13] << Reservation.all[14]
 user4.reservations << Reservation.all[15] << Reservation.all[16] << Reservation.all[17] << Reservation.all[18] << Reservation.all[19]
 
+user1.reviews << Review.first << Review.second<< Review.third << Review.fourth << Review.fifth
+user2.reviews << Review.all[5] << Review.all[6] << Review.all[7] << Review.all[8] << Review.all[9]
+user3.reviews << Review.all[10]<< Review.all[11] << Review.all[12] << Review.all[13] << Review.all[14]
+user4.reviews << Review.all[15] << Review.all[16] << Review.all[17] << Review.all[18] << Review.all[19]
+
 puts "+++++++++++++++++++++"
 puts "User #{user1.name} has the following reservations: #{user1.reservations.pluck(:booking_code).join(", ")}"
 puts "Reservation #{Reservation.first.booking_code} has the following users: #{Reservation.first.users.pluck(:name).join(", ")}"
@@ -169,7 +174,7 @@ puts "+++++++++++++++++++++"
 # Reservation.second.reviews << rev2
 # Reservation.third.reviews << rev3
 
-20.times do |i|
+10.times do |i|
   res_array[i].reviews << rev_array[i] << rev_array[i+10]
 end
 
@@ -187,19 +192,19 @@ puts "++++++++++++++++++++++++"
 
 ####  UPDATED   ##################################
 
-user1.reviews << rev5
-user4.reviews << rev6
-user2.reviews << rev7
-user3.reviews << rev8
+# user1.reviews << rev5
+# user4.reviews << rev6
+# user2.reviews << rev7
+# user3.reviews << rev8
 
 ##################################################
-
-puts "++++++++++++++++++++++++"
-puts "Review #{rev5.comment} has the following user: #{rev5.user.name}"
-puts "User: #{user1.name} has the following reviews: #{user1.reviews.pluck(:comment).join(", ")}"
-puts "++++++++++++++++++++++++"
-
-puts "++++++++++++++++++++++++"
+#
+# puts "++++++++++++++++++++++++"
+# puts "Review #{rev5.comment} has the following user: #{rev5.user.name}"
+# puts "User: #{user1.name} has the following reviews: #{user1.reviews.pluck(:comment).join(", ")}"
+# puts "++++++++++++++++++++++++"
+#
+# puts "++++++++++++++++++++++++"
 
 10.times do |i|
   property_array[i].images << image_array[i] << image_array[i+10] << image_array[i+20] << image_array[i+30] << image_array[i+40]

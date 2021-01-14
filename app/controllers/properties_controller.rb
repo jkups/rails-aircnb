@@ -4,8 +4,8 @@ class PropertiesController < ApplicationController
   # GET /properties.json
   def index
     headers['Access-Control-Allow-Origin'] = '*'
-    @properties = Property.all
-
+    @properties = Property.search(params[:search])
+    # allow the search function
 
     respond_to do |format|
       format.html { check_if_admin_logged_in  }

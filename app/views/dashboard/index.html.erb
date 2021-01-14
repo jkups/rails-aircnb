@@ -15,13 +15,13 @@
       <%= column_chart  @properties.group(:city).average(:listing_price), prefix: "$", xtitle: "Location", ytitle: "Average Listing Price"  %>
     </div>
     <div class="item-in-dashboard-1">
+      <h6 class="div-title"></h6>
+      <%= pie_chart @properties.group(:city).count, donut: true  %>
+    </div>
+    <div class="item-in-dashboard-1">
       <h6 class="div-title">Guest Capacity by Property type </h6>
       <p class="div-title">sum across properties </p>
       <%= bar_chart @properties.group(:property_type).sum(:max_guests), xtitle: "Sum of guest capacity", ytitle: "Property type", min: 0, max: 20, colors: ["#f9ab14", "rgba(#c6380b)", "#1d77f0"]  %>
-    </div>
-    <div class="item-in-dashboard-1">
-      <h6 class="div-title"></h6>
-      <%= bar_chart @properties.group(:property_type).sum(:max_guests), xtitle: "Maximum capacity of all property (sum)", ytitle: "Property type", min: 0, max: 20, colors: [ "#c6380b", "#f9ab14", "#1d77f0"]  %>
     </div>
   </div>
 </div>
