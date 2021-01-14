@@ -43,25 +43,38 @@ user1 = User.create!(
   name:"David",
   email:"david@ga.co",
   password:"chicken",
-  admin: true
+  admin: true,
+  about_info: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  email_confirmed: true,
+  identity_confirmed: true
+
 )
 
 user2 = User.create!(
   name:"John",
   email:"john@ga.co",
-  password:"chicken"
+  password:"chicken",
+  about_info: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  email_confirmed: true,
+  identity_confirmed: true
 )
 
 user3 = User.create!(
   name:"Kyle",
   email:"kyle@ga.co",
-  password:"chicken"
+  password:"chicken",
+  about_info: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  email_confirmed: true,
+  identity_confirmed: true
 )
 
 user4 = User.create!(
   name:"Stacey",
   email:"stacey@ga.co",
-  password:"chicken"
+  password:"chicken",
+  about_info: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  email_confirmed: true,
+  identity_confirmed: true
 )
 
 puts "Added #{User.count} users"
