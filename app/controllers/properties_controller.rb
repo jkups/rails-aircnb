@@ -29,6 +29,11 @@ class PropertiesController < ApplicationController
     results = Property.near(params[:search_term], 100, units: :km).limit(params[:limit]).offset(params[:offset]).where(property_type: params[:search_type])
     render json: results, include: ['images','reservations','reviews']
   end
+  #GET /properties/searchprice/:search_term/:search_type/:limit/:offset
+  def search_price_limit
+    results = Property.near(params[:search_term], 100, units: :km).limit(params[:limit]).offset(params[:offset]).where(:listing_price => (params[:lower])..(params[:higher]) )
+    render json: results, include: ['images','reservations','reviews']
+  end
 
   # GET /properties/1
   # GET /properties/1.json
