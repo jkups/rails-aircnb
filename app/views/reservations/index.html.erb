@@ -2,6 +2,19 @@
 
 <h2>Reservations</h2><br/>
 <%= link_to 'Create new reservation', new_reservation_path, class: "btn btn-primary" %> <br/><br/>
+
+<!-- search for user -->
+<div class="">
+
+  Search for reservations
+<%= form_tag(reservations_path, method: 'get') do %>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag("Search") %>
+<% end %>   <!-- form -->
+
+</div>
+<br>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -21,7 +34,7 @@
         </td>
         <td>
           <ul class="list-group" style="list-style: none">
-          Booking code: <% reservation.reviews.each do |review| %>
+          <% reservation.reviews.each do |review| %>
             <li class="list-group-item" >
               <p class="btn btn-link" style="padding: 5px; margin: 2px;"><%= link_to review.comment, review %></p><br/>
               <% if review.user != nil %>

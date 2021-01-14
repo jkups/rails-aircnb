@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
   def index
 
     headers['Access-Control-Allow-Origin'] = '*'
-    @reservations = Reservation.all
+    @reservations = Reservation.search(params[:search])
     respond_to do |format|
       # perform the standard login check for the html version of the request.
       # ( this will also render the default index template )
