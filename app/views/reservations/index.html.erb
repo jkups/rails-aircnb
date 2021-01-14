@@ -24,7 +24,9 @@
           Booking code: <% reservation.reviews.each do |review| %>
             <li class="list-group-item" >
               <p class="btn btn-link" style="padding: 5px; margin: 2px;"><%= link_to review.comment, review %></p><br/>
+              <% if review.user != nil %>
               <em> - <%= link_to review.user.name, review.user %></em>
+              <% end %>
             </li>
           <% end %>
           </ul>
