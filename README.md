@@ -1,7 +1,7 @@
 AirCnB platform
 -----------------------------------------------------
 
-This is a group project and is basically a clone of AirBnB but CnB means Communist and Beds.
+This is a group project and is basically a clone of AirBnB but with a diffent ending "CnB" which means Comfort and Beds.
 
 links
 ------------------------------------------------------
