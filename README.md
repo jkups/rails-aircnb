@@ -7,8 +7,8 @@ links
 ------------------------------------------------------
 Github Rails code: https://github.com/staceyrea/rails-air-cnb-app
 Github React code: https://github.com/staceyrea/react-air-cnb-app
-Heroku-rails:
-Gitgub-react:
+Live demo (Heroku-rails): https://air-bnb-replication.herokuapp.com/
+Live demo (Gitgub-react):
 
 Tech stack used
 ------------------------------------------------------
@@ -16,6 +16,7 @@ Tech stack used
 React
 PostgreSQL
 RoR
+CSS
 Bootstrap
 Braintree
 APIs
