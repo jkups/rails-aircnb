@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users=User.all
+    @users=User.search(params[:search])
     # headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
       format.html { check_if_admin_logged_in }
@@ -79,6 +79,7 @@ class UsersController < ApplicationController
     end
   end
 
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -87,6 +88,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :search)
     end
 end

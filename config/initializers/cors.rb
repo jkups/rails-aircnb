@@ -1,6 +1,10 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-     origins 'http://localhost:3001'
+    if Rails.env === 'production'
+      origins 'staceyrea.github.io'
+    else
+      origins 'localhost:3001'
+    end
 
      resource '*',
      :headers => :any,
