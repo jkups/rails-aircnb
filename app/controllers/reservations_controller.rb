@@ -1,6 +1,5 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
-
   skip_before_action :verify_authenticity_token, raise: false
 
   # GET /reservations
@@ -13,7 +12,6 @@ class ReservationsController < ApplicationController
       # perform the standard login check for the html version of the request.
       # ( this will also render the default index template )
       format.html { check_if_admin_logged_in }
-
       format.json do
         # TODO: do knock authentication check here
         render json: @reservations, include: ['users','property']

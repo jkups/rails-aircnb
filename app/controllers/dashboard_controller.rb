@@ -5,6 +5,8 @@ class DashboardController < ApplicationController
   def index
     @reservations = Reservation.all
     @users = User.all
+    @properties = Property.all
+    @review = Review.all
 
   end
 

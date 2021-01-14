@@ -14,7 +14,7 @@ class PaymentController < ApplicationController
         @reservation.update trxn_code: trxn_code, trxn_status: 'successfull'
         @user.reservations << @reservation
 
-        # UserMailer.confirm_reservation(@user, @reservation).deliver_now
+        UserMailer.confirm_reservation(@user, @reservation).deliver_now
         render json: @reservation, include:['property']
       else
         render json: { status: 401, errors: 'Payment failed to process. Please try again.' }
