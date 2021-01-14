@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   def new
 
     @user = User.new
+    @review = Review.new
   end
 
   # GET /users/1/edit
