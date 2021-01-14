@@ -21,7 +21,9 @@
 
         <li class="list-group-item">
           <p>Reservation Number:
+            <% if review.reservation != nil %>
             <%= review.reservation.booking_code %>
+            <% end  %>
 
             <%= link_to "Go to reservation", review.reservation, class: "btn btn-secondary", style: "padding: 5px; margin: 2px;" %>
           </p><em>
