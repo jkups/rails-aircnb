@@ -63,4 +63,8 @@ gem "geocoder", "~> 1.6"
 
 gem 'braintree', "~> 2.87"
 
+gem "chartkick"
+
+gem 'groupdate'
+
 gem 'faker'

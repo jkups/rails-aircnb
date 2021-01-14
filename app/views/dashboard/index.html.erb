@@ -1,0 +1,26 @@
+
+<br/>
+<h2>Dashboard Page</h2>
+<hr/>
+
+<div class="container" style="border: solid 1pt lightGrey; padding: 15pt">
+  <h5 style="background-color: lightGrey; padding: 5pt;">Reservation Summary</h5>
+  <div class="row">
+    <div class="col-sm">
+      <h1>
+        <%= @reservations.count %> 
+      </h1><p>reservations</p>
+    </div>
+    <div class="col-sm">
+
+  <%= line_chart @reservations.group_by_day(:from_date, format: "%a").count %>
+
+    </div>
+    <div class="col-sm">
+      <h1><%=  %></h1><p>average nights per stay</p>
+    </div>
+    <div class="col-sm">
+      <%= column_chart @reservations.group_by_hour(:created_at, format: "%a").count, id: "nights-by-city" %>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,7 @@
   "name": "rails-air-cnb-app",
   "private": true,
   "dependencies": {
-    "chart.js": "^2.9.4"
+    "chart.js": "^2.9.4",
+    "chartkick": "^3.2.1"
   }
 }
