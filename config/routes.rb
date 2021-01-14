@@ -18,8 +18,7 @@ Rails.application.routes.draw do
 
   # Payment routes
   post '/pay/:id' => 'payment#create'
-  #Review post
-  # post '/reviews/post' => 'reviews#post'
+
 
   # root 'hompage#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
