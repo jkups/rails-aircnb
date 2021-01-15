@@ -32,27 +32,35 @@ How to use
 
 AirCnB is a platform with properties around Australia for rent. Ruby on Rails (the backend) is for the admin to use while React (the frontend) is for the users to place reservations and leave reviews of the properties.
 
+
 This is the homepage:
 
 ![](app/assets/images/home.png)
+
 
 If Admin logins it can access all the features such as stats:
 
 ![](app/assets/images/dashboard.png)
 
-properties:
+
+Properties:
 
 ![](app/assets/images/properties.png)
 
-reservations:
+
+Reservations:
 
 ![](app/assets/images/reservation.png)
 
-and can add new properties, reservations or users:
+
+And the admin can add new properties, reservations or users:
 
 ![](app/assets/images/newuser.png)
 
 
+If the user logged in is not an admin the website will redirect the user to the frontend platform in order to make new bookings:
+
+![](app/assets/images/notUserLogin.png)
 
 
 Known bugs
