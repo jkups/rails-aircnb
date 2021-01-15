@@ -29,14 +29,20 @@
     <% @reservations.each do |reservation| %>
       <tr>
         <td><%= reservation.booking_code %></td>
-        <td><p class="btn btn-link" style="padding: 5px; margin: 2px;"><%= link_to reservation.property.title, reservation.property %></p><br><p style="padding: 5px; margin: 2px;">(ID: <%= reservation.property.id %>)</p>
+        <td>
+          <%= link_to reservation.property_id, reservation.property, style: "padding: 5px; margin: 2px;", class: "btn btn-link" %>
+          <br/>
+          <p>
 
+          </p>
         </td>
         <td>
           <ul class="list-group" style="list-style: none">
           <% reservation.reviews.each do |review| %>
             <li class="list-group-item" >
-              <p class="btn btn-link" style="padding: 5px; margin: 2px;"><%= link_to review.comment, review %></p><br/>
+              <p class="btn btn-link" style="padding: 5px; margin: 2px;">
+                <%= link_to review.comment, review %>
+              </p><br/>
               <% if review.user != nil %>
               <em> - <%= link_to review.user.name, review.user %></em>
               <% end %>

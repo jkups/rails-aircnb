@@ -1,6 +1,7 @@
-<h1>Editing Property</h1>
-
+<br/>
+<h1>Edit Property: <%= @property.title %></h1>
+<br/>
 <%= render 'form', property: @property %>
 
-<%= link_to 'Show', @property %> |
-<%= link_to 'Back', properties_path %>
+<%= link_to 'Back to property details', @property, class: "btn btn-outline-secondary" %>
+<%= link_to 'Back to property index', properties_path, class: "btn btn-outline-secondary" %>

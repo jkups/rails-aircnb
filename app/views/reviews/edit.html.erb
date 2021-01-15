@@ -2,5 +2,5 @@
 
 <%= render 'form', review: @review %>
 
-<%= link_to 'Show', @review %> |
-<%= link_to 'Back', reviews_path %>
+<%= link_to 'Back to review', @review, class: "btn btn-outline-secondary"  %>
+<%= link_to 'Back to Reservation Index', reservations_path, class: "btn btn-outline-secondary"  %>

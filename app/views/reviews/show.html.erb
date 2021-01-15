@@ -1,14 +1,35 @@
 <p id="notice"><%= notice %></p>
+<div class="card">
+  <div class="card-body">
+    <p>
+      <strong>User name:</strong>
+      <%= @review.reservation.users.all[0].name %>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @review.comment %>
-</p>
+    </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @review.rating %>
-</p>
+    <p>
+      <strong>Review of Property:</strong><br/>
+      <%= @review.reservation.property.title %> <br/>
+      (<%= @review.reservation.property.id %>)
+    </p>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+    <p>
+      <strong>Comment:</strong>
+      <%= @review.comment %>
+    </p>
+
+    <p>
+      <strong>Rating:</strong>
+      <%= @review.rating %>
+    </p>
+
+    <p>
+      <strong>Reservation dates:</strong>
+      <%= @review.reservation.from_date %> - <%= @review.reservation.to_date %>
+    </p>
+    <%= link_to 'Edit review', edit_review_path(@review), class: "btn btn-outline-secondary" %> |
+    <%= link_to 'Delete review', @review, method: :delete, data: { confirm: 'Please confirm you want to delete it' }, class: "btn btn-outline-danger" %> |
+    <%= link_to 'Back to Reservations', reservations_path, class: "btn btn-outline-secondary" %>
+    <%= link_to 'Back to users index', users_path, class: "btn btn-outline-secondary" %>
+  </div>
+</div>
