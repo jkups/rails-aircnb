@@ -5,7 +5,7 @@ This is a group project and is a reservation platform to book accommodation arou
 
 links
 ------------------------------------------------------
-Github Rails code: https://github.com/staceyrea/rails-air-cnb-app
+<p>Github Rails code: https://github.com/staceyrea/rails-air-cnb-app </p>
 Github React code: https://github.com/staceyrea/react-air-cnb-app
 Live demo (Heroku-rails): https://air-bnb-replication.herokuapp.com/
 Live demo (Gitgub-react): https://staceyrea.github.io/react-air-cnb-app/#/
