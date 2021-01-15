@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/properties/search/:search_term/:limit/:offset' => 'properties#search_limit'
 
   get '/properties/searchtype/:search_term/:search_type/:limit/:offset' => 'properties#search_type_limit'
+
+  get '/properties/searchprice/:search_term/:lower/:higher/:limit/:offset' => 'properties#search_price_limit'
   resources :reviews
   resources :reservations
   resources :users

@@ -34,10 +34,24 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     # headers['Access-Control-Allow-Origin'] = '*'
+    puts "+++++++++++++++++++++++++++++"
+    puts params[:reservation_id]
+    puts "+++++++++++++++++++++++++++++"
+
     @review = Review.new(review_params)
+
+
+    # puts Reservation.find_by(id: params[:reservation_id]).reviews
 
     respond_to do |format|
       if @review.save
+        # puts "+++++++++++++++++++++++++++++"
+        # puts Reservation.find_by(id: params[:reservation_id])
+        # puts Reservation.find_by(id: params[:reservation_id]).reviews
+        Reservation.find_by(id: params[:reservation_id]).reviews << @review
+        # Reservation.find_by(id: params[:reservation_id]).id = @review.reservation_id
+
+
         format.html { redirect_to @review, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
@@ -56,6 +70,10 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
   def update
+    puts "+++++++++++++++++++++++++++++++++++"
+    puts "clicked"
+    puts "+++++++++++++++++++++++++++++++++++"
+
     respond_to do |format|
       if @review.update(review_params)
         format.html { redirect_to @review, notice: 'Review was successfully updated.' }
@@ -72,7 +90,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to reservations_path, notice: 'Review was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -87,6 +105,6 @@ class ReviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def review_params
-      params.require(:review).permit(:comment, :rating)
+      params.require(:review).permit(:comment, :rating, :reservation_id)
     end
 end

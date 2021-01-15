@@ -7,8 +7,8 @@ res_array = []
 20.times do |i|
   create = Reservation.create!(
     booking_code: 'er34d' + i.to_s,
-    from_date: "2021-01-01",
-    to_date: "2021-02-01",
+    from_date: "2021-1-"+(1+i).to_s,
+    to_date: "2021-2-"+(1+i).to_s,
   )
   res_array.push create
 end
@@ -24,7 +24,7 @@ reviews = ["amazing place to stay.","Its not too bad.","SuperB.","Its fine.","am
 ratings = [4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3]
 
 rev_array = []
-40.times do |i|
+20.times do |i|
   create = Review.create!(
     comment: reviews[i],
     rating: ratings[i],
@@ -32,25 +32,6 @@ rev_array = []
   rev_array.push create
 end
 
-rev5 = Review.create!(
-  comment: "Great customer.",
-  rating: 4,
-)
-
-rev6 = Review.create!(
-  comment: "Horrible Customer.",
-  rating: 1,
-)
-
-rev7 = Review.create!(
-  comment: "Did not make beds when they left, otherwise they were ok.",
-  rating: 3,
-)
-
-rev8 = Review.create!(
-  comment: "Left the place better then they found it.",
-  rating: 5,
-)
 
 puts "Added #{Review.count} reviews"
 
@@ -62,25 +43,38 @@ user1 = User.create!(
   name:"David",
   email:"david@ga.co",
   password:"chicken",
-  admin: true
+  admin: true,
+  about_info: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  email_confirmed: true,
+  identity_confirmed: true
+
 )
 
 user2 = User.create!(
   name:"John",
   email:"john@ga.co",
-  password:"chicken"
+  password:"chicken",
+  about_info: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  email_confirmed: true,
+  identity_confirmed: true
 )
 
 user3 = User.create!(
   name:"Kyle",
   email:"kyle@ga.co",
-  password:"chicken"
+  password:"chicken",
+  about_info: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  email_confirmed: true,
+  identity_confirmed: true
 )
 
 user4 = User.create!(
   name:"Stacey",
   email:"stacey@ga.co",
-  password:"chicken"
+  password:"chicken",
+  about_info: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  email_confirmed: true,
+  identity_confirmed: true
 )
 
 puts "Added #{User.count} users"
@@ -91,12 +85,10 @@ Image.destroy_all
 
 image_array = []
 50.times do |i|
-  num = rand 1..10
-  num = num.to_s
   create = Image.create!(
     name: "Name",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    image_url: "http://www.fillmurray.com/300/200"
+    image_url: i.to_s + ".jpg"
   )
   image_array.push create
 end
@@ -153,57 +145,68 @@ end
 puts "Added #{Property.count} propeties"
 #==============================================================
 
-####  UPDATED   ##################################
 
-user1.reservations << Reservation.first << Reservation.second<< Reservation.third << Reservation.fourth << Reservation.fifth
-user2.reservations << Reservation.all[5] << Reservation.all[6] << Reservation.all[7] << Reservation.all[8] << Reservation.all[9]
-user3.reservations << Reservation.all[10]<< Reservation.all[11] << Reservation.all[12] << Reservation.all[13] << Reservation.all[14]
-user4.reservations << Reservation.all[15] << Reservation.all[16] << Reservation.all[17] << Reservation.all[18] << Reservation.all[19]
-
-puts "+++++++++++++++++++++"
-puts "User #{user1.name} has the following reservations: #{user1.reservations.pluck(:booking_code).join(", ")}"
-puts "Reservation #{Reservation.first.booking_code} has the following users: #{Reservation.first.users.pluck(:name).join(", ")}"
-puts "+++++++++++++++++++++"
-
-# Reservation.first.reviews << rev1 << rev4
-# Reservation.second.reviews << rev2
-# Reservation.third.reviews << rev3
-
-20.times do |i|
+10.times do |i|
   res_array[i].reviews << rev_array[i] << rev_array[i+10]
 end
 
-# Reservation.first.reviews << rev1 << rev7
-# Reservation.second.reviews << rev2 << rev8
-# Reservation.third.reviews << rev3
-# Reservation.fourth.reviews << rev4
-# Reservation.all[4].reviews << rev5
-# Reservation.all[5].reviews << rev6
+####  UPDATED   ##################################
+
+user1.reservations << Reservation.first << Reservation.second << Reservation.third << Reservation.fourth << Reservation.fifth
+
+user2.reservations << Reservation.all[5] << Reservation.all[6] << Reservation.all[7] << Reservation.all[8] << Reservation.all[9]
+
+user3.reservations << Reservation.all[10] << Reservation.all[11] << Reservation.all[12] << Reservation.all[13] << Reservation.all[14]
+
+user4.reservations << Reservation.all[15] << Reservation.all[16] << Reservation.all[17] << Reservation.all[18] << Reservation.all[19]
+
+
+# user1.reviews << Review.first << Review.second << Review.third << Review.fourth << Review.fifth << Review.all[10] << Review.all[11] << Review.all[12] << Review.all[13] << Review.all[14]
+#
+# puts "User #{user1.name} has the following review: #{user1.reviews.pluck(:id).join(", ")}"
+#
+# user2.reviews << Review.all[5] << Review.all[6] << Review.all[7] << Review.all[8] << Review.all[9] << Review.all[15] << Review.all[16] << Review.all[17] << Review.all[18] << Review.all[19]
+
+
+puts "+++++++++++++++++++++"
+puts "User #{user1.name} has the following reservations: #{user1.reservations.pluck(:booking_code).join(", ")}"
+puts "User #{user2.name} has the following review: #{user2.reviews.pluck(:id).join(", ")}"
+puts "Reservation #{Reservation.first.booking_code} has the following users: #{Reservation.first.users.pluck(:name).join(", ")}"
+puts "+++++++++++++++++++++"
+
+
+
+puts "User #{user1.name} has the following review: #{user1.reviews.pluck(:id).join(", ")}"
+puts "User #{user2.name} has the following review: #{user2.reviews.pluck(:id).join(", ")}"
+puts "User #{user3.name} has the following review: #{user3.reviews.pluck(:id).join(", ")}"
+puts "User #{user4.name} has the following review: #{user4.reviews.pluck(:id).join(", ")}"
+
 
 puts "++++++++++++++++++++++++"
 puts "Review #{Review.first.comment} has the following reservation: #{Review.first.reservation.booking_code}"
 puts "Resevation: #{Reservation.first.booking_code} has the following reviews: #{Reservation.first.reviews.pluck(:comment).join(", ")}"
 puts "++++++++++++++++++++++++"
 
-####  UPDATED   ##################################
 
-user1.reviews << rev5
-user4.reviews << rev6
-user2.reviews << rev7
-user3.reviews << rev8
+property_array[0].images << Image.all[0] << Image.all[1] << Image.all[2] << Image.all[3] << Image.all[4]
 
-##################################################
+property_array[1].images << Image.all[5] << Image.all[6] << Image.all[7] << Image.all[8] << Image.all[9]
 
-puts "++++++++++++++++++++++++"
-puts "Review #{rev5.comment} has the following user: #{rev5.user.name}"
-puts "User: #{user1.name} has the following reviews: #{user1.reviews.pluck(:comment).join(", ")}"
-puts "++++++++++++++++++++++++"
+property_array[2].images << Image.all[10]<< Image.all[11] << Image.all[12] << Image.all[13] << Image.all[14]
 
-puts "++++++++++++++++++++++++"
+property_array[3].images << Image.all[15] << Image.all[16] << Image.all[17] << Image.all[18] << Image.all[19]
 
-10.times do |i|
-  property_array[i].images << image_array[i] << image_array[i+10] << image_array[i+20] << image_array[i+30] << image_array[i+40]
-end
+property_array[4].images << Image.all[20] << Image.all[21] << Image.all[22] << Image.all[23] << Image.all[24]
+
+property_array[5].images << Image.all[25] << Image.all[26] << Image.all[27] << Image.all[28] << Image.all[29]
+
+property_array[6].images << Image.all[30] << Image.all[31] << Image.all[32] << Image.all[33] << Image.all[34]
+
+property_array[7].images << Image.all[35] << Image.all[36] << Image.all[37] << Image.all[38] << Image.all[39]
+
+property_array[8].images << Image.all[40] << Image.all[41] << Image.all[42] << Image.all[43] << Image.all[44]
+
+property_array[9].images << Image.all[45] << Image.all[46] << Image.all[47] << Image.all[48] << Image.all[49]
 
 puts "Testing property -< images associations:"
 puts "The image '#{ Image.first.name }' is by"

@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
       format.html {check_if_admin_logged_in}
-      format.json { render json: User.where(id: params[:id] ), include: ['reviews'] }
+      format.json { render json: User.where(id: params[:id] ), include: ['reviews','reservations'] }
     end
   end
 
@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   def new
 
     @user = User.new
+    @review = Review.new
   end
 
   # GET /users/1/edit
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.persisted?
-        session[:user_id] = @user.id
+
 
         format.html { redirect_to users_path }
         format.json { render json: { user: @user, logged_in: true }}
@@ -91,3 +92,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
     end
 end
+
+
+# session[:user_id] = @user.id  line 45
