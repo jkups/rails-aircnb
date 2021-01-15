@@ -34,32 +34,32 @@ AirCnB is a platform with properties around Australia for rent. Ruby on Rails (t
 
 
 This is the homepage:
-<br>
+
 ![](app/assets/images/home.png)
 
 <br>
 If Admin logins it can access all the features such as stats:
-<br>
+
 ![](app/assets/images/dashboard.png)
 
 <br>
 Properties:
-<br>
+
 ![](app/assets/images/properties.png)
 
 <br>
 Reservations:
-<br>
+
 ![](app/assets/images/reservation.png)
 
 <br>
 And the admin can add new properties, reservations and users:
-<br>
+
 ![](app/assets/images/newuser.png)
 
 <br>
 If the user logged in is not an admin the website will redirect the user to the frontend platform in order to make new bookings:
-<br>
+
 
 ![](app/assets/images/notUserLogin.png)
 
