@@ -1,6 +1,7 @@
-<h1>Editing Reservation</h1>
+<h1>Edit Reservation: <%= @reservation.booking_code %></h1>
 
 <%= render 'form', reservation: @reservation %>
 
-<%= link_to 'Show', @reservation %> |
-<%= link_to 'Back', reservations_path %>
+<hr/>
+<%= link_to 'Back to reservation', @reservation, class: "btn btn-outline-secondary" %>
+<%= link_to 'Back to reservation index', reservations_path, class: "btn btn-outline-secondary" %>

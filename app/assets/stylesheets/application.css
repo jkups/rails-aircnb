@@ -42,10 +42,30 @@
   }
 
   .home{
-    
+
     margin: 200px 400px;
   }
 
   #links{
     padding: 20px 20px;
   }
+
+.div-title{
+  text-align: center;
+}
+
+.dashboard-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows:  1fr 1fr;
+}
+
+.item-in-dashboard-1{
+  /* border: solid 1pt lightGrey; */
+  padding: 20pt;
+};
+
+
+.div-title > p{
+  text-align: center;
+}
