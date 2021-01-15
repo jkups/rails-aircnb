@@ -34,7 +34,7 @@ AirCnB is a platform with properties around Australia for rent. Ruby on Rails (t
 
 This is the homepage:
 
-![](app/assets/images/home.png | width=100)
+![](app/assets/images/home.png)
 
 If Admin logins it can access all the features such as stats:
 
