@@ -7,8 +7,8 @@ res_array = []
 20.times do |i|
   create = Reservation.create!(
     booking_code: 'er34d' + i.to_s,
-    from_date: "2021-01-01",
-    to_date: "2021-02-01",
+    from_date: "2021-1-"+(1+i).to_s,
+    to_date: "2021-2-"+(1+i).to_s,
   )
   res_array.push create
 end
@@ -24,7 +24,7 @@ reviews = ["amazing place to stay.","Its not too bad.","SuperB.","Its fine.","am
 ratings = [4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3,4,2,3,4,3]
 
 rev_array = []
-40.times do |i|
+20.times do |i|
   create = Review.create!(
     comment: reviews[i],
     rating: ratings[i],
@@ -32,25 +32,6 @@ rev_array = []
   rev_array.push create
 end
 
-# rev5 = Review.create!(
-#   comment: "Great customer.",
-#   rating: 4,
-# )
-#
-# rev6 = Review.create!(
-#   comment: "Horrible Customer.",
-#   rating: 1,
-# )
-#
-# rev7 = Review.create!(
-#   comment: "Did not make beds when they left, otherwise they were ok.",
-#   rating: 3,
-# )
-#
-# rev8 = Review.create!(
-#   comment: "Left the place better then they found it.",
-#   rating: 5,
-# )
 
 puts "Added #{Review.count} reviews"
 
@@ -164,58 +145,48 @@ end
 puts "Added #{Property.count} propeties"
 #==============================================================
 
-####  UPDATED   ##################################
-
-user1.reservations << Reservation.first << Reservation.second<< Reservation.third << Reservation.fourth << Reservation.fifth
-user2.reservations << Reservation.all[5] << Reservation.all[6] << Reservation.all[7] << Reservation.all[8] << Reservation.all[9]
-user3.reservations << Reservation.all[10]<< Reservation.all[11] << Reservation.all[12] << Reservation.all[13] << Reservation.all[14]
-user4.reservations << Reservation.all[15] << Reservation.all[16] << Reservation.all[17] << Reservation.all[18] << Reservation.all[19]
-
-# user1.reviews << Review.first << Review.second<< Review.third << Review.fourth << Review.fifth
-# user2.reviews << Review.all[5] << Review.all[6] << Review.all[7] << Review.all[8] << Review.all[9]
-# user3.reviews << Review.all[10]<< Review.all[11] << Review.all[12] << Review.all[13] << Review.all[14]
-# user4.reviews << Review.all[15] << Review.all[16] << Review.all[17] << Review.all[18] << Review.all[19]
-
-puts "+++++++++++++++++++++"
-puts "User #{user1.name} has the following reservations: #{user1.reservations.pluck(:booking_code).join(", ")}"
-puts "Reservation #{Reservation.first.booking_code} has the following users: #{Reservation.first.users.pluck(:name).join(", ")}"
-puts "+++++++++++++++++++++"
-
-# Reservation.first.reviews << rev1 << rev4
-# Reservation.second.reviews << rev2
-# Reservation.third.reviews << rev3
 
 10.times do |i|
   res_array[i].reviews << rev_array[i] << rev_array[i+10]
 end
 
-# Reservation.first.reviews << rev1 << rev7
-# Reservation.second.reviews << rev2 << rev8
-# Reservation.third.reviews << rev3
-# Reservation.fourth.reviews << rev4
-# Reservation.all[4].reviews << rev5
-# Reservation.all[5].reviews << rev6
+####  UPDATED   ##################################
+
+user1.reservations << Reservation.first << Reservation.second << Reservation.third << Reservation.fourth << Reservation.fifth
+
+user2.reservations << Reservation.all[5] << Reservation.all[6] << Reservation.all[7] << Reservation.all[8] << Reservation.all[9]
+
+user3.reservations << Reservation.all[10] << Reservation.all[11] << Reservation.all[12] << Reservation.all[13] << Reservation.all[14]
+
+user4.reservations << Reservation.all[15] << Reservation.all[16] << Reservation.all[17] << Reservation.all[18] << Reservation.all[19]
+
+
+# user1.reviews << Review.first << Review.second << Review.third << Review.fourth << Review.fifth << Review.all[10] << Review.all[11] << Review.all[12] << Review.all[13] << Review.all[14]
+#
+# puts "User #{user1.name} has the following review: #{user1.reviews.pluck(:id).join(", ")}"
+#
+# user2.reviews << Review.all[5] << Review.all[6] << Review.all[7] << Review.all[8] << Review.all[9] << Review.all[15] << Review.all[16] << Review.all[17] << Review.all[18] << Review.all[19]
+
+
+puts "+++++++++++++++++++++"
+puts "User #{user1.name} has the following reservations: #{user1.reservations.pluck(:booking_code).join(", ")}"
+puts "User #{user2.name} has the following review: #{user2.reviews.pluck(:id).join(", ")}"
+puts "Reservation #{Reservation.first.booking_code} has the following users: #{Reservation.first.users.pluck(:name).join(", ")}"
+puts "+++++++++++++++++++++"
+
+
+
+puts "User #{user1.name} has the following review: #{user1.reviews.pluck(:id).join(", ")}"
+puts "User #{user2.name} has the following review: #{user2.reviews.pluck(:id).join(", ")}"
+puts "User #{user3.name} has the following review: #{user3.reviews.pluck(:id).join(", ")}"
+puts "User #{user4.name} has the following review: #{user4.reviews.pluck(:id).join(", ")}"
+
 
 puts "++++++++++++++++++++++++"
 puts "Review #{Review.first.comment} has the following reservation: #{Review.first.reservation.booking_code}"
 puts "Resevation: #{Reservation.first.booking_code} has the following reviews: #{Reservation.first.reviews.pluck(:comment).join(", ")}"
 puts "++++++++++++++++++++++++"
 
-####  UPDATED   ##################################
-
-# user1.reviews << rev5
-# user4.reviews << rev6
-# user2.reviews << rev7
-# user3.reviews << rev8
-
-##################################################
-#
-# puts "++++++++++++++++++++++++"
-# puts "Review #{rev5.comment} has the following user: #{rev5.user.name}"
-# puts "User: #{user1.name} has the following reviews: #{user1.reviews.pluck(:comment).join(", ")}"
-# puts "++++++++++++++++++++++++"
-#
-# puts "++++++++++++++++++++++++"
 
 property_array[0].images << Image.all[0] << Image.all[1] << Image.all[2] << Image.all[3] << Image.all[4]
 

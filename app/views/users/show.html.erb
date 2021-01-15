@@ -1,42 +1,41 @@
 <p id="notice"><%= notice %></p>
+<div class="card">
+  <div class="card-body">
+    <p>
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <p>
+      <strong>Password:</strong>
+      <%= @user.password %>
+    </p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+    <p> <strong>Reservations: </strong>
 
-<p> <strong>Reservations: </strong>
-  <ul class="list-group" style="list-style: none">
-      <% @user.reviews.each do |review| %>
+      <ul class="list-group" style="list-style: none">
 
-        <li class="list-group-item">
-          <p>Reservation Number:
-            <% if review.reservation != nil %>
-            <%= review.reservation.booking_code %>
-            <% end  %>
+          <% @user.reservations.each do |reservation| %>
+            <% if reservation.booking_code.nil? %>
+              {<p>No reservations </p>}
+            <% else %>
+              <li class="list-group-item">
+                <p><strong>Reservation Number: </strong>
+                  <%= reservation.booking_code %>
+                  <br/><br/>
+                  <%= link_to "Go to reservation", reservation, class: "btn btn-outline-secondary", style: "padding: 5px; margin: 2px;" %>
+                </p><em>
+            </li>
+          <% end %>
+          <% end %>
 
-            <%= link_to "Go to reservation", review.reservation, class: "btn btn-secondary", style: "padding: 5px; margin: 2px;" %>
-          </p><em>
-          <p>
-            Review posted: '<%= link_to review.comment, review %>'</em>
-            <%= link_to "Go to review", review, class: "btn btn-secondary", style: "padding: 5px; margin: 2px;" %>
-          </p>
-        </li>
-
-    <% end %>
-
-  </ul>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      </ul><br/>
+    <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-outline-secondary" %>
+    <%= link_to 'Back to user index', users_path, class: "btn btn-outline-secondary" %>
+  </div>
+</div>

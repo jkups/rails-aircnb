@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   def new
 
     @user = User.new
+    @review = Review.new
   end
 
   # GET /users/1/edit
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.persisted?
-        session[:user_id] = @user.id
+
 
         format.html { redirect_to users_path }
         format.json { render json: { user: @user, logged_in: true }}
@@ -91,3 +92,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
     end
 end
+
+
+# session[:user_id] = @user.id  line 45
