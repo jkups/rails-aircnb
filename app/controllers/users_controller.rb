@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
       format.html {check_if_admin_logged_in}
-      format.json { render json: User.where(id: params[:id] ), include: ['reviews'] }
+      format.json { render json: User.where(id: params[:id] ), include: ['reviews','reservations'] }
     end
   end
 

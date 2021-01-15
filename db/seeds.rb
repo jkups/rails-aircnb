@@ -104,12 +104,10 @@ Image.destroy_all
 
 image_array = []
 50.times do |i|
-  num = rand 1..10
-  num = num.to_s
   create = Image.create!(
     name: "Name",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    image_url: "http://www.fillmurray.com/300/200"
+    image_url: i.to_s + ".jpg"
   )
   image_array.push create
 end
@@ -173,10 +171,10 @@ user2.reservations << Reservation.all[5] << Reservation.all[6] << Reservation.al
 user3.reservations << Reservation.all[10]<< Reservation.all[11] << Reservation.all[12] << Reservation.all[13] << Reservation.all[14]
 user4.reservations << Reservation.all[15] << Reservation.all[16] << Reservation.all[17] << Reservation.all[18] << Reservation.all[19]
 
-user1.reviews << Review.first << Review.second<< Review.third << Review.fourth << Review.fifth
-user2.reviews << Review.all[5] << Review.all[6] << Review.all[7] << Review.all[8] << Review.all[9]
-user3.reviews << Review.all[10]<< Review.all[11] << Review.all[12] << Review.all[13] << Review.all[14]
-user4.reviews << Review.all[15] << Review.all[16] << Review.all[17] << Review.all[18] << Review.all[19]
+# user1.reviews << Review.first << Review.second<< Review.third << Review.fourth << Review.fifth
+# user2.reviews << Review.all[5] << Review.all[6] << Review.all[7] << Review.all[8] << Review.all[9]
+# user3.reviews << Review.all[10]<< Review.all[11] << Review.all[12] << Review.all[13] << Review.all[14]
+# user4.reviews << Review.all[15] << Review.all[16] << Review.all[17] << Review.all[18] << Review.all[19]
 
 puts "+++++++++++++++++++++"
 puts "User #{user1.name} has the following reservations: #{user1.reservations.pluck(:booking_code).join(", ")}"
@@ -219,9 +217,25 @@ puts "++++++++++++++++++++++++"
 #
 # puts "++++++++++++++++++++++++"
 
-10.times do |i|
-  property_array[i].images << image_array[i] << image_array[i+10] << image_array[i+20] << image_array[i+30] << image_array[i+40]
-end
+property_array[0].images << Image.all[0] << Image.all[1] << Image.all[2] << Image.all[3] << Image.all[4]
+
+property_array[1].images << Image.all[5] << Image.all[6] << Image.all[7] << Image.all[8] << Image.all[9]
+
+property_array[2].images << Image.all[10]<< Image.all[11] << Image.all[12] << Image.all[13] << Image.all[14]
+
+property_array[3].images << Image.all[15] << Image.all[16] << Image.all[17] << Image.all[18] << Image.all[19]
+
+property_array[4].images << Image.all[20] << Image.all[21] << Image.all[22] << Image.all[23] << Image.all[24]
+
+property_array[5].images << Image.all[25] << Image.all[26] << Image.all[27] << Image.all[28] << Image.all[29]
+
+property_array[6].images << Image.all[30] << Image.all[31] << Image.all[32] << Image.all[33] << Image.all[34]
+
+property_array[7].images << Image.all[35] << Image.all[36] << Image.all[37] << Image.all[38] << Image.all[39]
+
+property_array[8].images << Image.all[40] << Image.all[41] << Image.all[42] << Image.all[43] << Image.all[44]
+
+property_array[9].images << Image.all[45] << Image.all[46] << Image.all[47] << Image.all[48] << Image.all[49]
 
 puts "Testing property -< images associations:"
 puts "The image '#{ Image.first.name }' is by"
