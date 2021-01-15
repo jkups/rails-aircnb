@@ -1,7 +1,7 @@
-AirCnB platform
+AirCnB
 -----------------------------------------------------
 
-This is a group project and is basically a clone of AirBnB but with a different ending "CnB" which means Comfort and Beds.
+This is a group project and is a reservation platform to book accommodation around Australia.
 
 links
 ------------------------------------------------------
@@ -31,6 +31,8 @@ How to use
 ------------------------------------------------------
 
 AirCnB is a platform with properties around Australia for rent. Ruby on Rails (the backend) is for the admin to use while React (the frontend) is for the users to place reservations and leave reviews of the properties.
+
+![](images/logo.png)
 
 Known bugs
 ------------------------------------------------------

@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
 
   default from: "generalassemblyprojects@gmail.com"
-  default to: "o.johnkupoluyi@gmail.com"
+  default to: "generalassemblyprojects@gmail.com"
 
 
   def contact_email(name, email, message, booking)
