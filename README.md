@@ -30,7 +30,7 @@ ActionMailer
 How to use
 ------------------------------------------------------
 
-AirCnB is a platform with properties around Australia for rent. Ruby on Rails (the backend) is for the admin to use while React (the frontend) is for the users to place reservations and leave reviews of the properties.
+AirCnB is a platform with properties around Australia for rent. Ruby on Rails (the backend) is for the admin to use while React (the frontend) is for the users to place property reservations.
 
 
 This is the homepage:
@@ -53,7 +53,7 @@ Reservations:
 ![](app/assets/images/reservation.png)
 
 
-And the admin can add new properties, reservations or users:
+And the admin can add new properties, reservations and users:
 
 ![](app/assets/images/newuser.png)
 
@@ -69,4 +69,4 @@ TBA
 
 Future features
 ------------------------------------------------------
-User will be able to favourite Properties
+TBA
