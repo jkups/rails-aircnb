@@ -22,5 +22,6 @@
 </p>
 
 
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', property_path(@image.property) %>
+<%= link_to 'Edit image', edit_image_path(@image), class: "btn btn-outline-secondary" %>
+<%= link_to 'Delete image', @image, method: :delete, class: "btn btn-outline-danger" %>
+<%= link_to 'Back to property details', property_path(@image.property), class: "btn btn-outline-secondary" %>

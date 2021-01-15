@@ -6,7 +6,7 @@
 
 
 
-  <%= link_to 'Add new user', new_user_path, class: "btn btn-primary " %><br/><br/>
+  <%= link_to 'Add new user', new_user_path, class: "btn btn-primary", style: "color: white" %><br/><br/>
 
   <!-- search for user -->
   <div class="">
@@ -25,7 +25,6 @@
       <tr>
         <th>Name</th>
         <th>Email</th>
-        <th>Password</th>
         <th>Admin</th>
         <th>Reservations</th>
 
@@ -39,18 +38,8 @@
         <tr>
           <td id=<%=user.id%>> <%= user.name %></td>
           <td><%= user.email %></td>
-          <td><%= user.password %></td>
           <td><%= user.admin ? 'yes' : 'no' %></td>
-          <td>
-            <ul>
-                <% user.reservations.each do |reservation| %>
-                <li>
-                  <%= link_to reservation.booking_code, reservation %>
-                <% end %>
-              </li>
-            </ul>
-          </td>
-          <td><%= link_to 'Show', user, class: "btn btn-outline-secondary" %></td>
+          <td><%= link_to 'Show user details', user, class: "btn btn-outline-secondary" %></td>
           <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-outline-secondary" %></td>
           <td><%= link_to 'Remove User', user, class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Please confirm you want to delete it' } %></td>
         </tr>

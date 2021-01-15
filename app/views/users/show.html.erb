@@ -17,25 +17,24 @@
     </p>
 
     <p> <strong>Reservations: </strong>
+
       <ul class="list-group" style="list-style: none">
+
           <% @user.reservations.each do |reservation| %>
-
-            <li class="list-group-item">
-              <p>Reservation Number:
-                <%= reservation.booking_code %>
-                <% reservation.reviews.each do |review| %>
-                  <%= review.comment %>
-                  <%= review.user_id %>
-                <% end %>
-                <%= link_to "Go to reservation", reservation, class: "btn btn-secondary", style: "padding: 5px; margin: 2px;" %>
-              </p><em>
+            <% if reservation.booking_code.nil? %>
+              {<p>No reservations </p>}
+            <% else %>
+              <li class="list-group-item">
+                <p><strong>Reservation Number: </strong>
+                  <%= reservation.booking_code %>
+                  <br/><br/>
+                  <%= link_to "Go to reservation", reservation, class: "btn btn-outline-secondary", style: "padding: 5px; margin: 2px;" %>
+                </p><em>
             </li>
+          <% end %>
+          <% end %>
 
-        <% end %>
-
-      </ul>
-
-
+      </ul><br/>
     <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-outline-secondary" %>
     <%= link_to 'Back to user index', users_path, class: "btn btn-outline-secondary" %>
   </div>
