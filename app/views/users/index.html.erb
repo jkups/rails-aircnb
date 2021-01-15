@@ -40,7 +40,6 @@
           <td><%= user.email %></td>
           <td><%= user.admin ? 'yes' : 'no' %></td>
           <td><%= link_to 'Show user details', user, class: "btn btn-outline-secondary" %></td>
-          <td><%= link_to 'Edit', edit_user_path(user), class: "btn btn-outline-secondary" %></td>
           <td><%= link_to 'Remove User', user, class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Please confirm you want to delete it' } %></td>
         </tr>
       <% end %>
