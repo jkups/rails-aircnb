@@ -50,30 +50,6 @@
     padding: 20px 20px;
   }
 
-  .hero{
-    height: calc(100vh - 115px);
-    background-image: url('https://news.airbnb.com/wp-content/uploads/sites/4/2020/04/Airbnb_Peru_Skylodge.jpg');
-    background-repeat: no-repeat;
-  }
-
-  .hero-heading h1 {
-    padding-top: 190px;
-  font-size: 100px;
-  font-weight: 600;
-  line-height: 80px;
-  color: white;
-  text-shadow: 2px 2px rgba(0,0,0,0.5);
-  }
-
-  .hero-heading span {
-  font-size:18px;
-  background-color: white;
-  margin-left:7px;
-  padding: 3px 20px;
-  margin-top: 5px;
-  display:inline-block;
-  border-radius: 5px;
-  }
 .div-title{
   text-align: center;
 }
@@ -85,11 +61,5 @@
 }
 
 .item-in-dashboard-1{
-  /* border: solid 1pt lightGrey; */
   padding: 20pt;
 };
-
-
-.div-title > p{
-  text-align: center;
-}
