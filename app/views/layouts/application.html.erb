@@ -28,7 +28,7 @@
       <nav>
         <%= render partial: 'layouts/nav'%>
       </nav>
-      <% if @current_user.present? %>
+      <% if @current_user.present? && @current_user.admin %>
         Welcome, <strong> <%= @current_user.name %> </strong>
         <% else %> </p>
         <% end %>
