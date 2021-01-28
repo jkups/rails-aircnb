@@ -7,8 +7,9 @@ class SessionController < ApplicationController
     respond_to do |format|
       if user.present? && user.authenticate(params[:password])
         session[:user_id] = user.id
+        @current_user = user
 
-        format.html { redirect_to root_path}
+        format.html { check_if_admin_logged_in }
         format.json { render json: { user: user, logged_in: true }}
       else
         flash[:error] = 'Invalid Email or Password.'
