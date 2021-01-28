@@ -4,7 +4,7 @@
   <div class="card mb-3" >
     <div class="row g-0">
       <div class=" col-md-4">
-        <%= image_tag "https://res.cloudinary.com/dhl1cdqch/image/upload/v1610626496/#{@reservation.property.images[0].image_url}", width: "250" %>
+        <img src="https://res.cloudinary.com/dhl1cdqch/image/upload/v1610626496/<%= @reservation.property.images[0].image_url %>" width="250px" />
       </div>
       <div class="col-md-8">
         <div class="card-body">
