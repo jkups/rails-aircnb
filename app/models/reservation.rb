@@ -21,6 +21,7 @@ class Reservation < ApplicationRecord
     cleaning_fee = self.property.cleaning_fee
     guests_count = self.guests_count
     total_nights = (self.to_date - self.from_date).to_i
+    total_nights = total_nights / 1.day
 
     total_due = total_nights * price_per_night + service_fee + cleaning_fee
   end

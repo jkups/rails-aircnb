@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :properties
   get '/properties/search/:search_term/' => 'properties#search'
 
+  get '/properties/search/:term/:type/:limit/:offset/:pricerange' => 'properties#search_limit'
+
   get '/properties/search/:search_term/:limit/:offset' => 'properties#search_limit'
 
   get '/properties/searchtype/:search_term/:search_type/:limit/:offset' => 'properties#search_type_limit'
