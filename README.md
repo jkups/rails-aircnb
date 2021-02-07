@@ -1,73 +1,55 @@
-AirCnB
------------------------------------------------------
+# AirCnB platform
 
-This is a group project and is a reservation platform to book accommodation around Australia.
+This is a group project and an attempt to clone the popular AirBnB platform.
 
-links
-------------------------------------------------------
-<p>Github Rails code: https://github.com/staceyrea/rails-air-cnb-app </p>
-<p>Github React code: https://github.com/staceyrea/react-air-cnb-app </p>
-<p>Live demo (Heroku-rails): https://air-bnb-replication.herokuapp.com/ </p>
-<p>Live demo (Gitgub-react): https://staceyrea.github.io/react-air-cnb-app/#/ </p>
-
-Tech stack used
-------------------------------------------------------
-
-React
-PostgreSQL
-RoR
-CSS
-Bootstrap
-Braintree
-APIs
-JSON
-AXIOS
-Geolocation
-ActionMailer
+### Links
+* Github Rails code: https://github.com/jkups/rails-aircnb
+* Github React code: https://github.com/jkups/react-aircnb
 
 
+* Live demo (Backend): https://aircnb.herokuapp.com
+  - Test Credentials:
+    * username - david@ga.co,
+    * password - chicken
 
-How to use
-------------------------------------------------------
 
-AirCnB is a platform with properties around Australia for rent. Ruby on Rails (the backend) is for the admin to use while React (the frontend) is for the users to place property reservations.
+* Live demo (Frontend): https://jkups.github.io/react-aircnb
+  - Test Credentials:
+    * username - john@ga.co,
+    * password - chicken
+
+### Tech Stack
+* React
+* Ruby on Rails
+* HTML / CSS / JavaScript
+
+### APIs / Plugins
+* Bootstrap
+* Braintree
+* Google Maps
+* Chartjs
+* Sendgrid
 
 
-This is the homepage:
+## Key Features
+The backend is where properties are setup and bookings / reservations are managed. The key components of the backend are:
+<br/>
 
-![](app/assets/images/home.png)
-
-<br>
-If Admin logins it can access all the features such as stats:
-
-![](app/assets/images/dashboard.png)
-
-<br>
-Properties:
+**Properties:** Creating accommodation that users can reserve.
 
 ![](app/assets/images/properties.png)
+<br />
 
-<br>
-Reservations:
+**Reservations:** A view into all bookings / reservations that have been made.
 
 ![](app/assets/images/reservation.png)
+<br/>
 
-<br>
-And the admin can add new properties, reservations and users:
+**Dashboard:** A high-level statistical view of all properties across different dimensions.
 
-![](app/assets/images/newuser.png)
+![](app/assets/images/dashboard.png)
+<br />
 
-<br>
-If the user logged in is not an admin the website will redirect the user to the frontend platform in order to make new bookings:
-
-
-![](app/assets/images/notUserLogin.png)
-
-
-Known bugs
-------------------------------------------------------
-TBA
-
-Future features
-------------------------------------------------------
-TBA
+### Features Planned
+* Cleanup the look and feel
+* Add additional charts for reservations
