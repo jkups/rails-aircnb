@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users=User.search(params[:search])
-    # headers['Access-Control-Allow-Origin'] = '*'
     respond_to do |format|
       format.html { check_if_admin_logged_in }
       format.json { render json: User.all, include: ['reviews'] }
@@ -43,12 +42,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.persisted?
-
-
         format.html { redirect_to users_path }
         format.json { render json: { user: @user, logged_in: true }}
       else
-
         format.html { render :new }
         format.json { render json: { status: 401, errors: 'Could not create account' }}
 
