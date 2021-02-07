@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
 
-  default from: "o.johnkupoluyi@gmail.com"
+  default from: "generalassemblyprojects@gmail.com"
   default to: "o.johnkupoluyi@gmail.com"
 
 
